@@ -1,0 +1,752 @@
+<!doctype html>
+  <html lang="en">
+    <head> 
+	  <meta charset="UTF-8" /> 
+	  <title>Player Dashboard</title>
+	  <style> .panel { border:1px solid #ddd; border-radius:6px; padding:1rem; } .panelHeader { padding-bottom:.5rem; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center; } body {background-color: #7A0B68;color: #ffffff; }</style>	  
+	</head> 
+	<body>
+	  <div id="bank" aria-label="Bank"></div>
+	  <label><input type="checkbox" id="papersLeft" /> Zeige nur Gesellschaften mit verfügbaren Papieren.</label>
+	  <div id="playerDashboardWrapper" class="panel" aria-label="Player Dashboard"> 
+	    <div class="panelHeader" style="display:flex;justify-content:space-between;align-items:center;"> 
+		  <button id="toggleDashboardBtn" aria-expanded="true" aria-controls="playerDashboard" type="button">Hide</button> 
+		</div> 
+		<section id="playerDashboard" style="padding: .5rem;"> 
+		  <div id="playerOverview" aria-label="Player overview"></div> 
+		  <section id="majorsSection" aria-label="Majors"> 
+		    <h2>Majors</h2> 
+		    <div id="majorsList"></div> 
+		  </section>
+		  <section id="minorsSection" aria-label="Minors"> 
+		    <h2>Minors</h2> 
+		    <div id="minorsList"></div> 
+		  </section>		  
+		</section>
+	  </div> 
+	  <script> 
+	  
+	  collapseBankState = true;
+	  const collapseState = {};
+	  const collapseSharesState = {};
+	  collapseState['major_01'] = true;
+	  collapseState['major_02'] = true;
+	  collapseState['major_03'] = true;
+	  collapseState['major_04'] = true;
+	  collapseState['major_05'] = true;
+	  collapseState['major_06'] = true;
+	  collapseState['major_07'] = true;
+	  collapseState['major_08'] = true;
+	  collapseState['major_09'] = true;
+	  collapseState['major_10'] = true;
+	  collapseState['major_11'] = true;
+	  collapseState['major_12'] = true;
+	  collapseState['major_13'] = true;
+	  collapseState['major_14'] = true;
+	  collapseState['major_15'] = true;
+	  collapseState['major_16'] = true;
+	  collapseState['major_17'] = true;
+	  collapseState['major_18'] = true;
+	  collapseState['major_19'] = true;
+	  collapseState['major_20'] = true;
+	  collapseState['major_21'] = true;
+	  collapseState['major_22'] = true;
+	  collapseState['major_23'] = true;
+	  collapseState['major_24'] = true;
+	  
+	  const collapseMajorBalanceState = {};
+	  collapseMajorBalanceState['major_01'] = true;
+	  collapseMajorBalanceState['major_02'] = true;
+	  collapseMajorBalanceState['major_03'] = true;
+	  collapseMajorBalanceState['major_04'] = true;
+	  collapseMajorBalanceState['major_05'] = true;
+	  collapseMajorBalanceState['major_06'] = true;
+	  collapseMajorBalanceState['major_07'] = true;
+	  collapseMajorBalanceState['major_08'] = true;
+	  collapseMajorBalanceState['major_09'] = true;
+	  collapseMajorBalanceState['major_10'] = true;
+	  collapseMajorBalanceState['major_11'] = true;
+	  collapseMajorBalanceState['major_12'] = true;
+	  collapseMajorBalanceState['major_13'] = true;
+	  collapseMajorBalanceState['major_14'] = true;
+	  collapseMajorBalanceState['major_15'] = true;
+	  collapseMajorBalanceState['major_16'] = true;
+	  collapseMajorBalanceState['major_17'] = true;
+	  collapseMajorBalanceState['major_18'] = true;
+	  collapseMajorBalanceState['major_19'] = true;
+	  collapseMajorBalanceState['major_20'] = true;
+	  collapseMajorBalanceState['major_21'] = true;
+	  collapseMajorBalanceState['major_22'] = true;
+	  collapseMajorBalanceState['major_23'] = true;
+	  collapseMajorBalanceState['major_24'] = true;
+	  
+	  const collapseMinorBalanceState = {};
+	  collapseMinorBalanceState['Minor_A'] = true;
+	  collapseMinorBalanceState['Minor_B'] = true;
+	  collapseMinorBalanceState['Minor_C'] = true;
+	  collapseMinorBalanceState['Minor_D'] = true;
+	  collapseMinorBalanceState['Minor_E'] = true;
+	  collapseMinorBalanceState['Minor_F'] = true;
+	  collapseMinorBalanceState['Minor_G'] = true;
+	  collapseMinorBalanceState['Minor_H'] = true;
+	  collapseMinorBalanceState['Minor_J'] = true;
+	  collapseMinorBalanceState['Minor_K'] = true;
+	  collapseMinorBalanceState['Minor_L'] = true;
+	  collapseMinorBalanceState['Minor_M'] = true;
+	  
+	  const collapsePlayerBalanceState = {};
+	  collapsePlayerBalanceState['player_1'] = true;
+	  collapsePlayerBalanceState['player_2'] = true;
+	  collapsePlayerBalanceState['player_3'] = true;
+	  collapsePlayerBalanceState['player_4'] = true;
+	  collapsePlayerBalanceState['player_5'] = true;
+	  collapsePlayerBalanceState['player_6'] = true;
+	  collapsePlayerBalanceState['player_7'] = true;
+	  collapsePlayerBalanceState['player_8'] = true;
+	  
+	  let firstRun= true;
+	  
+	  async function loadState() 
+	  { 
+	    const r = await fetch('/state'); 
+		if (!r.ok) throw new Error('State fetch failed');
+		return await r.json(); 
+	  } 
+	  function getQueryParam(name) 
+	  {
+		const p = new URLSearchParams(window.location.search);
+		return p.get(name);
+	  }
+	   
+		
+	  	  
+// Utility: create a per-player block
+function createPlayerBlock(player,state) 
+{
+  const block = document.createElement('div');
+  block.className = 'user-panel';
+  block.dataset.userId = player.id;
+  block.style = 'margin-bottom:3rem;'
+  // header
+  const header = document.createElement('div');
+  header.className = 'user-header';
+  header.style.display = 'flex';
+  header.style.justifyContent = 'space-between';
+  header.style.alignItems = 'center';
+  header.innerHTML = `<button class="user-toggle" aria-expanded="true" type="button" style="display:inline-block; font-size: 1.4rem; padding: 0.6rem 0.9rem;">Einklappen</button>`;
+  block.appendChild(header);
+
+  // Always include overview container
+  let minorsSectionHtml = '';
+  // determine ownership of minors
+  const ownsMinors = (state.shares || []).some(s => s.percentage === 100 && s.ownerEntityId === player.id);
+  if (ownsMinors) 
+  {
+    minorsSectionHtml =        `<section class="panel" style="margin-top:.5rem;">         <div id="minorsList-${player.id}"></div>       </section>`;
+  }
+  // content
+  const content = document.createElement('div');
+  content.className = 'user-content';
+  content.style.padding = '.5rem 0';
+  // placeholders (will fill by render)
+  content.innerHTML =     `<div class="overview" id="overview-${player.id}"></div>     <section class="panel" style="margin-top:.5rem;">       <div id="majorsList-${player.id}"></div>     </section>     ${minorsSectionHtml}`
+  const shares = (state.shares || []).filter(s => s.ownerEntityId === player.id).length;
+  const sharesPanel = document.createElement('section');
+  sharesPanel.className = 'panel player-shares-panel';
+  sharesPanel.style.marginTop = '.5rem';
+  sharesPanel.dataset.userId = player.id; // unique per player
+  sharesPanel.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;"> <button aria-expanded="true" type="button" class="player-shares-toggle" style="display:inline-block;font-size: 1.4rem; padding: 0.5rem 0.8rem;">Show</button> </div> <div class="player-shares-list" style="display:none;"></div> `;
+  content.insertBefore(sharesPanel, content.querySelector('section.panel'));
+  // Initialize: collapse by default
+  const listEl = sharesPanel.querySelector('.player-shares-list');
+  const toggleBtn = sharesPanel.querySelector('.player-shares-toggle');
+  if (listEl) listEl.style.display = 'none';
+  if (toggleBtn) 
+  {
+    toggleBtn.textContent = shares+' Aktien';
+    toggleBtn.style.display = 'inline-block';
+    toggleBtn.addEventListener('click', () => 
+	{
+	  const hidden = listEl.style.display === 'none';
+	  listEl.style.display = hidden ? 'block' : 'none';
+      toggleBtn.textContent = hidden ? shares+' Einklappen' : shares+' Aktien';
+	  //toggleBtn.setAttribute('aria-expanded', String(!hidden));
+	  collapseSharesState[player.id] = hidden ? false : true;
+
+	});
+  }
+  block.appendChild(content);
+  // Attach delegated toggle for this block
+  // Collapse by default
+  header.querySelector('.user-toggle').setAttribute('data-collapsed', 'true');
+  header.querySelector('.user-toggle').setAttribute('aria-expanded', 'false');
+  const urlPlayerId = getQueryParam('playerId');
+  if (firstRun)
+  {
+    if (player.id === urlPlayerId) 
+    {
+      collapseState[player.id] = false;
+    } else {
+      collapseState[player.id] = true;
+    }
+	collapseSharesState[player.id] = true;
+  }
+  header.querySelector('.user-toggle').addEventListener('click', () => 
+  {
+    const collapsed = content.style.display === 'none';
+	content.style.display = collapsed ? 'block' : 'none';
+	header.querySelector('.user-toggle').textContent = collapsed ? 'Einklappen' :  player.name;
+	header.querySelector('.user-toggle').setAttribute('aria-expanded', String(!collapsed));
+	// Persist
+	collapseState[player.id] = collapsed ? false : true; // true if collapsed, false if shown
+  });
+  // Build shares panel (for this player)
+  return block;
+}
+
+function restoreAllCollapses(state) 
+{
+  document.querySelectorAll('.user-panel').forEach(block => 
+  {
+    const allPlayers = (state.entities || []).filter(e => e.type === 'Player');
+	const uid = block.dataset.userId;
+	const user = allPlayers.find(p => p.id === uid);
+	const header = block.querySelector('.user-header');
+	const content = block.querySelector('.user-content');
+	const btn = header?.querySelector('.user-toggle');
+	const collapsed = collapseState[uid] === true;
+	if (content) content.style.display = collapsed ? 'none' : 'block';
+	if (btn) 
+	{
+	  btn.textContent = collapsed ? user.name : 'Einklappen';
+	  btn.setAttribute('aria-expanded', String(!collapsed));
+	}
+	const playerSharesCollapsed = collapseSharesState[uid] === true;
+	const sharesPanel = block.querySelector('.player-shares-list')?.parentElement?.parentElement;
+	const sharesList = block.querySelector('.player-shares-list');
+	const sharesBtn = block.querySelector('.player-shares-toggle');
+	const shares = (state.shares || []).filter(s => s.ownerEntityId === user.id).length;
+	if (sharesList) 
+	{
+	  sharesList.style.display = playerSharesCollapsed ? 'none' : 'block';
+	}
+	if (sharesBtn && sharesList) 
+	{
+	  sharesBtn.textContent = playerSharesCollapsed ? shares+' Aktien' : shares+' Einklappen';
+      
+	}
+	
+	block.querySelectorAll('section.panel').forEach(sec => 
+	{
+	  const majorId = sec.dataset.majorId;
+	  if (!majorId) return;
+	  const list = sec.querySelector('.shares-list');
+	  const btn = sec.querySelector('.shares-toggle');
+	  const perMajorCollapsed = collapseState[majorId] === true;
+      if (list && btn) 
+	  {
+	    list.style.display = perMajorCollapsed ? 'none' : 'block';
+		btn.textContent = perMajorCollapsed ? 'Details' : 'Einklappen';
+	  }	  
+	});
+	block.querySelectorAll('div.panel2').forEach(con =>
+	{
+	  const majorId = con.dataset.majorId;
+	  if (!majorId) return;
+	  const list = con.querySelector('.balance-history-list');
+	  const perMajorCollapsed = collapseMajorBalanceState[majorId] === true;
+	  if (list){
+	  list.style.display = perMajorCollapsed ? 'none' : 'block';
+	  } 	  
+	});
+	block.querySelectorAll('div.panel3').forEach(min =>
+	{
+	  const minorId = min.dataset.minorId;
+	  if (!minorId) return;
+	  const list = min.querySelector('.balance-history-list');
+	  const perMinorCollapsed = collapseMinorBalanceState[minorId] === true;
+	  if (list){
+	  list.style.display = perMinorCollapsed ? 'none' : 'block';
+	  }	  
+	});
+	 
+	const playerBalanceList = block.querySelector('.balance-history-list');
+	const perPlayerCollapsed = collapsePlayerBalanceState[user.id] === true;
+	if (playerBalanceList)
+	{
+	  playerBalanceList.style.display = perPlayerCollapsed ? 'none' : 'block';
+	}
+	const bankDiv = document.getElementById('playerDashboardWrapper');
+	const bankBalanceList = bankDiv.querySelector('.balance-history-list');
+	const bankCollapsed = collapseBankState === true;
+	if (bankBalanceList)
+	{
+	  bankBalanceList.style.display = bankCollapsed ? 'none' : 'block';
+	}
+  });
+}
+
+async function renderAllPlayers() 
+{
+  const state = await loadState();
+  const allPlayers = (state.entities || []).filter(e => e.type === 'Player');
+  const wrapper = document.getElementById('playerDashboardWrapper');
+  wrapper.innerHTML = '';
+  const bank = (state.entities || []).find(e => e.type === 'Bank');
+  const bankBalance = bank?.balance ?? 0;
+  
+  let availableTrains = 0;
+  const allTrains =
+  [
+    { "noT": 30},
+	{ "noT": 20},
+	{ "noT": 10},
+	{ "noT": 8},
+	{ "noT": 6},
+	{ "noT": 14},
+	{ "noT": 8}
+  ];
+	  
+  const bankOwnedTrains = (state.trains || []).filter(t => t.rusted === false && t.ownerEntityId === 'bank_main' && t.name.startsWith('Level'));
+  if (bankOwnedTrains.length > 0)
+  {
+	for (let i = 2; i < 9; i++)
+	{
+	  const trainLevel = 'Level '+ i;
+      const availableTrainsForLevel = bankOwnedTrains.filter(t => t.name === trainLevel);
+	  if ( availableTrainsForLevel.length === allTrains[i-2].noT) break;
+	  availableTrains += availableTrainsForLevel.length;	  
+	}
+  }
+  
+  const northSeaMarker = (state.port_authority_markers || []).filter(p => p.ownerEntityId === 'bank_main' && p.name === 'North Sea Port Authority');
+  const mediterraneanMarker = (state.port_authority_markers || []).filter(p => p.ownerEntityId === 'bank_main' && p.name === 'Mediterranean Port Authority');
+  
+  if (wrapper)
+  {
+    const balanceHistory = bank.history.map(h => 
+	{
+	  const transfer = (state.transfers || []).find(t => t.id === h.id);
+	  return `<div data-t-id="${h.id}"> ${h.change} - ${h.balance} - ${transfer.note}</div>`;			
+	}).join('');
+    wrapper.innerHTML = `<div id="bankdiv"><h1>Bank Guthaben: ${bankBalance}</h1><button aria-expanded="true" type="button" class="player-balance-toggle" style="display:inline-block;">+</button><div class="balance-history-list" style="padding:.5rem 0;">${balanceHistory}</div></div><div>Züge übrig: ${availableTrains}</div><div>Nordseemarker übrig: ${northSeaMarker.length}</div><div>Mittelmeer übrig: ${mediterraneanMarker.length}</div>`
+	const balanceBtn = wrapper.querySelector('button.player-balance-toggle');
+		  if (balanceBtn) 
+		  {
+	        balanceBtn.addEventListener('click', () => 
+		    {
+			  const list = wrapper.querySelector('.balance-history-list');
+			  const hidden = list.style.display === 'none';
+			  list.style.display = hidden ? 'block' : 'none';
+			  collapseBankState = hidden ? false : true;
+		    });
+		  }
+  }
+  // 1) determine the URL playerId
+  const urlPlayerId = getQueryParam('playerId');
+  // 2) partition players: first the one matching URL, then the rest
+  const matchIndex = allPlayers.findIndex(p => p.id === urlPlayerId);
+  const ordered = [];
+
+  if (matchIndex !== -1) 
+  {
+    ordered.push(allPlayers[matchIndex]);
+  }
+  allPlayers.forEach((p, i) => 
+  {
+    if (i === matchIndex) return;
+    ordered.push(p);
+  });
+
+  // 3) render in the new order
+  ordered.forEach(p => 
+  {
+    const blk = createPlayerBlock(p,state);
+    wrapper.appendChild(blk);
+    const overviewTarget = blk.querySelector('#overview-' + p.id);
+    renderPlayerOverview(state, p.id, overviewTarget);
+    renderMajorsForPlayer(state, p.id, blk.querySelector('#majorsList-' + p.id));
+    renderMinorsForPlayer(state, p.id, blk.querySelector('#minorsList-' + p.id));
+	renderSharesForPlayer(state,p.id,blk.querySelector('.player-shares-list'));
+  });
+  firstRun=false;
+  restoreAllCollapses(state);
+  const saved = parseFloat(localStorage.getItem('dashboard-scroll') || '0'); 
+  window.scrollTo({ top: saved, behavior: 'auto' });
+}
+
+function renderSharesForPlayer(state, playerId, listEl) 
+{
+  if (!playerId || !listEl) return;
+  const shares = (state.shares || []).filter(s => s.ownerEntityId === playerId);
+ 
+  // Build simple HTML rows, keep original order (unsorted)
+  const html = shares.length ? shares.map(s => 
+  {
+	const company = (state.entities || []).find(e => e.id === s.originCompanyId);
+	const companyMode = company?.mode ?? 'Regional';
+	return `<div>${s.name ?? s.id ?? ''}  - Mode: ${companyMode ?? 'Regional'} </div>`;
+  }).join('') : '<div>(no shares)</div>';
+
+  listEl.innerHTML = html;
+}
+
+// Wiring: keep existing DOMContentLoaded flow but call renderAllPlayers
+document.addEventListener('DOMContentLoaded', () => 
+{
+  renderAllPlayers().catch(console.error);
+});
+
+	  function renderPlayerOverview(state, playerId, containerEl) 
+	  {
+		const p = (state.entities || []).find(e => e.id === playerId && e.type === 'Player');
+		const overview = containerEl || document.getElementById('playerOverview');
+		if (!p) 
+		{
+		  if (overview) overview.textContent = 'Player not found';
+		  return;
+		}
+
+		const shares = (state.shares || []).filter(s => s.ownerEntityId === playerId);
+
+		// Update only non-major parts; do not touch majorsSection or majorsList
+
+		if (overview) 
+		{
+          const balanceHistory = p.history.map(h => 
+		  {
+		    const transfer = (state.transfers || []).find(t => t.id === h.id);
+		    return `<div data-t-id="${h.id}"> ${h.change} - ${h.balance} - ${transfer.note}</div>`;			
+		  }).join('');
+	      overview.innerHTML = `      <br><div class="panel4" data-player-id="${playerId}"><h1>${p.name}</h1></div><div>Kapital: ${p.balance ?? 0}<button aria-expanded="true" type="button" class="player-balance-toggle" style="display:inline-block;">+</button><div class="balance-history-list" style="padding:.5rem 0;">${balanceHistory}</div></div>`;
+		  const balanceBtn = overview.querySelector('button.player-balance-toggle');
+		  if (balanceBtn) 
+		  {
+	        balanceBtn.addEventListener('click', () => 
+		    {
+			  const list = overview.querySelector('.balance-history-list');
+			  const hidden = list.style.display === 'none';
+			  list.style.display = hidden ? 'block' : 'none';
+			  collapsePlayerBalanceState[p.id] = hidden ? false : true;
+		    });
+		  }
+		}
+	  }
+
+	  // Populate majors only after non-major parts are in place
+	  async function renderMajorsForPlayer(state,playerId,listEl) 
+	  {
+	    
+	    
+		if (!playerId) return;
+		const majorsForPlayer = (state.entities || [])
+		.filter(e => e.type === 'Major')
+		.filter(major => 
+		{
+		  const allShares = state.shares?.filter(s => s.originCompanyId === major.id);
+		  const sharesForOrigin = allShares?.filter(s => s.originCompanyId === major.id && s.ownerEntityId === playerId && s.percentage === 20);
+	      return sharesForOrigin && sharesForOrigin.length > 0;
+		});
+
+
+
+		const majors = (majorsForPlayer || []).filter(major =>
+		{
+		  if (major.mode === 'Regional')
+		  {
+		    const allShares = state.shares?.filter(s => s.originCompanyId === major.id && s.mode === 'regional');
+			const sharesForStockRoundDisplay = allShares?.filter(s => s.ownerEntityId === s.originCompanyId || s.ownerEntityId === 'bank_main');
+		  if ( document.getElementById('papersLeft').checked === true)
+			{
+		      console.log('Regional:', major.name, sharesForStockRoundDisplay.length);
+		      return sharesForStockRoundDisplay && sharesForStockRoundDisplay.length > 0;
+		    }else {
+		      return sharesForStockRoundDisplay;
+		    }
+		  } else {
+			const allShares = state.shares?.filter(s => s.originCompanyId === major.id );
+			const sharesForStockRoundDisplay = allShares?.filter(s => s.ownerEntityId === s.originCompanyId || s.ownerEntityId === 'bank_main');
+		  if ( document.getElementById('papersLeft').checked === true)
+			{
+		      console.log('Major:', major.name, sharesForStockRoundDisplay.length);
+		      return sharesForStockRoundDisplay && sharesForStockRoundDisplay.length > 0;
+		    }else {
+		      return sharesForStockRoundDisplay;
+		    }
+		  }
+
+		  
+		});
+		if (!listEl) return;
+		
+		listEl.innerHTML = '';
+		
+		majors.map(major => 
+		{
+
+		  //const company = (state.entities || []).find(e => e.id === major.originCompanyId && e.type === 'Company');
+		  const balance = major?.balance ?? 0;
+		  const mode = major?.mode ?? 'unknown';
+		  const oe_run = major.oe_run;
+		  const filterRegional = (major?.mode ?? '').toLowerCase() === 'regional';
+		  // Build tokens string: optionally filter by regional rule
+		  const tokensArray = Array.isArray(major.tokens) ? major.tokens : [];
+
+		  // If regional, only include tokens where token.major is false
+		  const filteredTokens = filterRegional? tokensArray.filter(t => t?.major === false): tokensArray;
+
+		  // Tokens string: O for onboard === true, C otherwise
+		  const tokens = filteredTokens.map(t => (t?.onboard ? 'X' : 'O')).join('');
+		  const trains = (state.trains || []).filter(t => t.ownerEntityId === major.id);
+		  const trainsInfo = trains.map(t => 
+		  {
+			const side = (t.sides || []).find(s => s.id === t.sideused);
+			const sideName = side?.name ?? 'Unknown Side';
+			return `${sideName}`;
+		  });
+		  const markers = (state.port_authority_markers || [])
+		  .filter(m => m.ownerEntityId === major.id)
+		  .map(m => m.name);
+
+		  const markersHtml = markers.length > 0 ? `<div>Hafen Autorität: ${markers.join(', ')}</div>` : '';
+		  // determine if we should filter by regional shares
+		  
+		  // Build a list of minor names owned by the major via percentage-1 shares
+		  const minorNamesParts = [];
+		  const sharesForMajorForMinorCheck = (state.shares || []).filter(s => s.percentage === 100 && s.ownerEntityId === major.id);
+
+		  sharesForMajorForMinorCheck.forEach(s => 
+		  {
+			const minor = (state.entities || []).find(e => e.id === s.originCompanyId && e.type === 'Minor');
+			if (minor && minor.name) 
+			{
+			  const abilityText = minor.ability_text ?? '';
+			  const trackRights = minor.track_rights ?? '';
+			  // append to the minor display
+			  minorNamesParts.push(`<span> ${minor.name} <br> Effekt: ${abilityText} <br> Region: ${trackRights}</span>`);			  
+			}
+		  });
+		  // Display in majorsList (append to existing per-major block)
+		  // Example: add a line under existing major block
+		  const minorsHtml = minorNamesParts.length > 0 ? `<div>Angebundene Kleingesellschaft: ${minorNamesParts.join('<br>')}</div>`: '';
+		  
+		  const allShares = (state.shares || []).filter(s => s.originCompanyId === major.id)
+		  .filter(s => 
+		  { 
+		    if (filterRegional) return (s.mode ?? '').toLowerCase() === 'regional';
+			return true;
+		  })
+		  .map(s => 
+		  {
+			// find owner entity name
+			const owner = (state.entities || []).find(e => e.id === s.ownerEntityId);
+			return (
+			{ 
+			  ...s,
+			  ownerName: owner?.name ?? s.ownerEntityId,
+			  ownerType: owner?.type ?? ''
+			});
+		  });
+		  
+		  // 1) Build per-owner totals (only needed for Player-stage sorting)
+		  const totalsByOwner = allShares.reduce((acc, s) => 
+		  {
+			acc[s.ownerEntityId] = (acc[s.ownerEntityId] ?? 0) + (s.percentage ?? 0);
+			return acc;
+		  }, {});
+
+		  // 2) Helper to get owner type rank
+		  const getOwnerRank = (ownerId) => 
+		  {
+			const owner = (state.entities || []).find(e => e.id === ownerId);
+			if (!owner) return 2;
+			if (owner.type === 'Player') return 0;
+			if (owner.type === 'Major') return 1;
+			// default to Bank or unknown
+			return 2;
+		  };
+
+		  // 3) Build shares with rank and owner info
+		  const sharesWithMeta = allShares.map(s => 
+		  {
+		    const owner = (state.entities || []).find(e => e.id === s.ownerEntityId);
+		    return (
+			{
+			  ...s,
+			  ownerName: owner?.name ?? s.ownerEntityId,
+			  ownerType: owner?.type ?? '',
+			  ownerRank: getOwnerRank(s.ownerEntityId),
+			  // for Stage 2, you can use totalsByOwner to compute per-owner total if needed
+			  totalForOwner: totalsByOwner[s.ownerEntityId] ?? 0,
+			  intraKey: s.id ?? s.name ?? ''
+		    });
+		  });
+
+		  // 4) Sort by two-stage rule
+		  sharesWithMeta.sort((a, b) => 
+		  {
+			// Stage 1: by ownerRank (Player first, Major, Bank)
+			if (a.ownerRank !== b.ownerRank) return a.ownerRank - b.ownerRank;
+			// Stage 2 (only within Player-owned shares): sort by per-owner total percentage descending
+			// If you want this to affect only Player-owned group, check a.ownerRank === 0
+			if (a.ownerRank === 0 && b.ownerRank === 0) 
+			{
+			  const ta = totalsByOwner[a.ownerEntityId] ?? 0;
+			  const tb = totalsByOwner[b.ownerEntityId] ?? 0;
+			  if (tb !== ta) return tb - ta;
+			}
+			// Final tie-breaker for deterministic order
+			const an = a.name ?? a.id ?? '';
+			const bn = b.name ?? b.id ?? '';
+			return an.localeCompare(bn);
+		  });
+		  const totals = {};
+		  sharesWithMeta.forEach(s=>
+		  {
+		    const id = s.ownerName;
+			if ( major.mode === 'Regional')
+			{
+			  totals[id] = (totals[id] ?? 0) + ((s.percentage*2.5) ?? 0);
+			}else {
+			  totals[id] = (totals[id] ?? 0) + (s.percentage ?? 0);
+			}
+		  });
+		  
+		  const sharesToBuy = (sharesWithMeta || []).filter(e => e.ownerEntityId === 'bank_main' || e.ownerEntityId === e.originCompanyId).length;
+		  //const sharesForMajorHTML = (sharesWithMeta || []).length > 0 ? sharesWithMeta.map(s => `<div>${s.name} - Owner: ${s.ownerName} </div>`).join(''): '<div>(no shares)</div>';
+		  const sharesForMajorHTML = Object.entries(totals).map(([ownerName,totalPercentage]) =>
+		  {
+		    return `<div> ${ownerName} ${totalPercentage}%</div>`;
+		  }).join('');
+		  const balanceHistory = major.history.map(h => 
+		  {
+		    const transfer = (state.transfers || []).find(t => t.id === h.id);
+		    return `<div data-t-id="${h.id}"> ${h.change} - ${h.balance} - ${transfer.note}</div>`;			
+		  }).join('');
+		  const container = document.createElement('div');
+		  container.className = 'panel2';
+		  oe_string = '';
+		  if (oe_run)
+		  {
+		    oe_string = '(OE)';
+		  } else {
+		    oe_string = '';
+		  }
+		  container.innerHTML = `<div><strong>${major.name}${oe_string}</strong></div>  <span> Guthaben: ${balance} <button aria-expanded="true" type="button" class="balance-toggle" style="display:inline-block;">+</button><div class="balance-history-list" style="padding:.5rem 0;">${balanceHistory}</div><br> <div>Züge: ${trainsInfo.join('; ')}</div> Modus: ${mode} | Bahnhofsmarker: ${tokens}<br>Verfügbare Aktien: ${sharesToBuy}</span>    ${markers.length > 0 ? `<div>Hafenmeisterei: ${markers.join(', ')}</div>` : ''}<br>Letztes Einkommen: ${major.lastRevenue}`;
+		  container.setAttribute('data-major-id', major.id);
+		  container.style.backgroundColor = major.color ?? '#000000';
+		  const section = document.createElement('section');
+		  section.className = 'panel';
+		  section.style.marginTop = '.5rem';
+		  section.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;"> <button aria-expanded="true" type="button" class="shares-toggle" style="display:inline-block;font-size: 1.4rem; padding: 0.6rem 0.9rem;">Show</button></div> <div class="shares-list" style="padding:.5rem 0;"><div><strong>Aktienanteile:</strong></div>${sharesForMajorHTML}${minorsHtml}</div>`;
+		  section.setAttribute('data-major-id', major.id);
+		  const btn = section.querySelector('button.shares-toggle');
+		  if (btn) 
+		  {
+			btn.style.display = 'inline-block';
+			btn.textContent = 'Details';
+			btn.addEventListener('click', () => 
+			{
+			  const list = section.querySelector('.shares-list');
+			  const hidden = list.style.display === 'none';
+			  list.style.display = hidden ? 'block' : 'none';
+			  btn.textContent = hidden ? 'Einklappen' : 'Details';
+			  collapseState[major.id] = hidden ? false : true;
+		    });
+		  }
+		  const balanceBtn = container.querySelector('button.balance-toggle');
+		  if (balanceBtn) 
+		  {
+			balanceBtn.addEventListener('click', () => 
+			{
+			  const list = container.querySelector('.balance-history-list');
+			  const hidden = list.style.display === 'none';
+			  list.style.display = hidden ? 'block' : 'none';
+			  collapseMajorBalanceState[major.id] = hidden ? false : true;
+		    });
+		  }		  		  
+		  container.appendChild(section);
+		  listEl.appendChild(container);
+		});
+
+	  }
+	  async function renderMinorsForPlayer(state,playerId,listEl) 
+	  {
+	    
+		if (!playerId) return;
+
+		const minors = (state.entities || [])
+		.filter(e => e.type === 'Minor')
+		.filter(minor => 
+		{
+		  const sharesForOrigin = state.shares?.filter(s => s.originCompanyId === minor.id && s.ownerEntityId === playerId);
+		  return sharesForOrigin && sharesForOrigin.length > 0;
+		});
+
+		if (!listEl) return;
+		listEl.innerHTML = '';
+		
+		minors.map(minor => 
+		{
+		  const balance = minor?.balance ?? 0;
+		  const track_rights = minor?.track_rights ?? 'tbd';
+		  const ability_text = minor?.ability_text ?? 'none';
+		  // Build tokens string: optionally filter by regional rule
+		  const tokensArray = Array.isArray(minor.tokens) ? minor.tokens : [];
+
+		  // Tokens string: X for onboard === true, O otherwise
+		  const tokens = tokensArray.map(t => (t?.onboard ? 'X' : 'O')).join('');
+		  const trains = (state.trains || []).filter(t => t.ownerEntityId === minor.id);
+		  const trainsInfo = trains.map(t => 
+		  {
+			const side = (t.sides || []).find(s => s.id === t.sideused);
+			const sideName = side?.name ?? 'Unknown Side';
+			return `${t.name} - Side: ${sideName}`;
+		  });
+		  const balanceHistory = minor.history.map(h => 
+		  {
+		    const transfer = (state.transfers || []).find(t => t.id === h.id);
+		    return `<div data-t-id="${h.id}"> {h.change} - ${h.balance} - ${transfer.note}</div>`;			
+		  }).join(''); 
+		    	  
+		  const container = document.createElement('div');
+		  container.className = 'panel3';
+		  container.setAttribute('data-minor-id', minor.id);
+		  container.innerHTML = `<div><strong>${minor.name}</strong></div>  <span> Guthaben: ${balance} <button aria-expanded="true" type="button" class="balance-toggle" style="display:inline-block;">+</button><div class="balance-history-list" style="padding:.5rem 0;">${balanceHistory}</div> </span>  <div>Züge: ${trainsInfo.join('; ')}</div><div>Bahnhofsmarker: ${tokens}</div><div> Region: ${track_rights} <br> Effekt: ${ability_text}</div><br>`;
+		  const balanceBtn = container.querySelector('button.balance-toggle');
+		  if (balanceBtn) 
+		  {
+			balanceBtn.addEventListener('click', () => 
+			{
+			  const list = container.querySelector('.balance-history-list');
+			  const hidden = list.style.display === 'none';
+			  list.style.display = hidden ? 'block' : 'none';
+			  collapseMinorBalanceState[minor.id] = hidden ? false : true;
+		    });
+		  }
+		  listEl.appendChild(container);
+		});
+
+	  }
+	  let lastHash = '';	  
+	  setInterval(async () => 
+	  { 
+	    const s = await fetch('/state');
+		const j = await s.json();
+
+		const hash = JSON.stringify(j).length; 
+		// simple heuristic 
+		if (hash !== lastHash) 
+		{ 
+		  const scrollPos = window.scrollY; 
+		  localStorage.setItem('dashboard-scroll', String(scrollPos));
+		  lastHash = hash; 
+		  renderAllPlayers(); 
+		} 
+	  }
+	  , 5000);
+	  
+	  document.getElementById('papersLeft').addEventListener('change', renderAllPlayers);
+	</script> 
+  </body> 
+</html>

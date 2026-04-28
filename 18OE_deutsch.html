@@ -1,0 +1,1160 @@
+<!doctype html> 
+  <html lang="en"> 
+    <head> 
+	  <meta charset="UTF-8" /> 
+	  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	  <title>Balance Transfer with Optional Autocomplete or Dropdown</title> 
+	  <style> .card { max-width: 680px; margin: 0 auto; padding: 1rem; background:#f5f7fa; border-radius:8px; } .row { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; align-items: start; } .field { display:grid; gap:.25rem; position:relative; } label { font-weight:600; font-size:.92rem; } input[type="number"], input[type="text"] { width:96%; padding:.6rem; font-size:1rem; } select { width:100%; padding:.6rem; font-size:1rem; } .hint { font-size:.85rem; color:#555; } .dropdown { position:absolute; z-index:99; top:100%; left:0; right:0; background:#fff; border:1px solid #ccc; border-radius:6px; max-height:240px; overflow:auto; display:none; } .item { padding:.5rem 0.75rem; cursor:pointer; } .item:hover, .item.active { background:#eef; } .controls { display:flex; gap:.5rem; align-items:center; margin-top:.25rem; } .sr { position:absolute; left:-10000px; } @media (max-width:700px){ .row { grid-template-columns:1fr; } } </style> 
+	</head> 
+	<body> 
+	  <main class="card" aria-label="Balance Transfer Form with Optional Autocomplete or Dropdown">
+		<div class="field" aria-label="Transfer Balance" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+	      <h2>Balance Transfer</h2> 
+		    <form id="transferForm" autocomplete="off" onsubmit="handleSubmit(event)" >
+			   <label for="amount">Amount to transfer</label> 			
+		    <div class="row" aria-label="Amount and direction" >
+		      <div class="field"> 
+		        <input type="number" id="amount" name="amount" step="1" min="0" required placeholder="e.g., 1000" /> 
+			    <span class="hint">Enter positive amount to move from source to target.</span> 
+		      </div> 
+		      <div class="field" aria-label="Reverse"> 
+				<label> Reverse Money Flow for a correction?</label>
+				<div class="row">
+				<input type="checkbox" id="reverseMoneyFlow" />				
+			    </div>
+		      </div> 
+		    </div>
+		    <div class="col field" aria-label="Entity 1" style="position:relative;">
+		      <label>From:</label> 
+	          <input type="text" id="entity1_combo" autocomplete="off" placeholder="Type to search…" />
+	          <div id="entity1_dropdown" class="dropdown" role="listbox" aria-label="Entity 1 results" style="display:none;"></div>
+	          <span class="sr" id="entity1_id" aria-live="polite"></span>
+            </div> 
+            <div class="col field" aria-label="Entity 2" style="position:relative;">
+              <label>To:</label>
+              <input type="text" id="entity2_combo" autocomplete="off" placeholder="Type to search…" /> 
+	          <div id="entity2_dropdown" class="dropdown" role="listbox" aria-label="Entity 2 results" style="display:none;"></div> 
+	          <span class="sr" id="entity2_id" aria-live="polite"></span> 
+            </div>
+            <div class="btns" aria-label="Submit">
+              <span class="sr" id="formStatus" aria-live="polite"></span>
+              <div style="flex:1"></div>
+              <button type="submit" style="display:block;width:100%;margin-top:8px;" class="primary">Submit Transfer</button>
+            </div>
+		    <div id="transferStatus" aria-live="polite" style="margin-top:.5rem;"></div>
+		  <input type="hidden" name="source" id="source" value="local_network" />
+		</div>
+  
+  
+  <div class="field" aria-label="Distribute by Company" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+    <h2>Distribute gains for Company</h2> 
+    <select id="companyDistribute" aria-label="Select Company"> 
+    <!-- Options populated from state.shares ownerEntityId where type=Major --> 
+    </select>
+    <input type="number" id="amountDistribute" placeholder="Total gains to distribute" step="1" min="30" />
+    <br>
+    <div class="field" aria-label="Distribute by Company half-pay"> <label><input type="checkbox" id="halfPay" /> Pay half of each share to owner and origin issuer</label> </div>
+    <br>
+    <div class="field" aria-label="OE run?"> <label><input type="checkbox" id="oe_run" /> Has this company done an OE run?</label> </div>
+    <button type="button" id="distributeBtn" class="primary">Distribute Gains</button>
+	<div id="distributeStatus" aria-live="polite" style="margin-top:.5rem;"></div>
+  </div>
+
+<div class="field" aria-label="Transfer share ownership" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+  <h2>Buy Shares/Certificates</h2>
+  <label for="companyDistributeShare">Railroad Company</label> 
+  <select id="companyDistributeShare"></select>
+  <label for="shareSelect" style="margin-top:.5rem;">Share</label> 
+  <select id="shareSelect"></select>
+  <label for="newOwner" style="margin-top:.5rem;">New Owner</label> 
+  <select id="newOwner"></select>
+  <label for="shareValue">Share Value (optional)</label> 
+  <input type="number" id="shareValue" placeholder="Enter share value (optional)" step="1" min="0" />
+  <button type="button" id="shareActionBtn" class="primary">Move Share Ownership</button>
+  <div id="buyStockStatus" aria-live="polite" style="margin-top:.5rem;"></div>
+</div>
+
+ 
+<div class="field" id="trainTradeForm" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+  <h2>Train Side Purchase</h2>
+  <div class="field" style="margin-bottom:.75rem;">
+    <label for="ownerSelect">Current Owner</label>
+    <select id="ownerSelect" aria-label="Current owner"> <!-- populated by JS --> </select>
+  </div>
+  <div class="field" aria-label="Show rusted Trains?"> <label><input type="checkbox" id="rusted" /> Show rusted Trains?</label> </div>
+  <div class="field" style="margin-bottom:.75rem;">
+    <label for="trainSelect">Train</label>
+	<select id="trainSelect" aria-label="Train"> <!-- populated by JS --> </select>
+  </div> 
+  <div class="field" style="margin-bottom:.75rem;"> 
+    <label for="sideSelect">Side</label> 
+	<select id="sideSelect" aria-label="Train side"> <!-- populated by JS --> </select>
+  </div>
+  <div class="field" style="margin-bottom:.75rem;">
+    <label for="newOwnerSelect">New Owner</label>
+	<select id="newOwnerSelect" aria-label="New owner (Bank/Main or Minor/Major)"> <!-- populated by JS --> </select>
+  </div>
+  <div class="field" style="margin-bottom:.75rem;">
+    <label for="priceInput">Price</label>
+	<input type="number" id="priceInput" min="0" step="0.01" aria-label="Price" /> 
+  </div>
+  <button type="button" id="buySideBtn" class="primary">Buy Train Side</button>
+  <div id="tradeStatus" aria-live="polite" style="margin-top:.5rem; height:1.2em;"></div> 
+</div>
+
+<div class="field" id="markerBoardForm" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+  <h2>Place Token on Board</h2>
+  <div class="field" style="margin-bottom:.75rem;"> 
+    <label for="companySelect">Company</label> 
+	<select id="companySelect" aria-label="Company with tokens"></select> 
+  </div>
+  <div class="field" style="margin-bottom:.75rem;"> 
+    <label for="tokenSelect">Token</label> 
+	<select id="tokenSelect" aria-label="Token"></select> 
+  </div> 
+  <div class="field" style="margin-bottom:.75rem;">
+    <label for="tokenpriceInput">Price</label> 
+	<input type="number" id="tokenpriceInput" placeholder="Price" step="1" /> 
+  </div>
+  <button type="button" id="placeMarkerBtn" class="primary">Place Token on Board</button>
+
+  <div id="markerBoardStatus" aria-live="polite" style="margin-top:.5rem;"></div> 
+</div>
+
+<div class="field" id="portMarkerForm" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+  <h2>Sell Port Authority Marker</h2>
+  <div class="field" style="margin-bottom:.75rem;">
+    <label for="markerSelect">Marker</label> 
+	<select id="markerSelect" aria-label="Port marker"></select> 
+  </div>
+  <div class="field" style="margin-bottom:.75rem;"> 
+    <label for="destSelect">Destination (Major or Bank)</label> 
+	<select id="destSelect" aria-label="Destination owner"></select> 
+  </div>
+  <button type="button" id="sellMarkerBtn" class="primary">Sell Marker</button> 
+  <div id="markerStatus" aria-live="polite" style="margin-top:.5rem;"></div> 
+</div>
+
+<div class="field" aria-label="Pay Privates" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+  <h2>Pay for Privates</h2>
+  <button type="button" id="payPrivatesBtn" style="padding:.5rem 1rem;">Pay Privates</button>
+  <div id="payPrivatesStatus" aria-live="polite" style="margin-top:.5rem;"></div>  
+</div>
+
+<div class="field" aria-label="Major company mode toggle" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+ <h2>Regional/Major/National Mode</h2>
+  <select id="majorModeCompany" aria-label="Select company to toggle mode">
+ <!-- options populated dynamically from /state --> </select>
+ <button type="button" id="toggleMajorModeBtn" style="padding:.5rem 1rem;">Switch Mode</button>
+ <div id="toggleStatus" aria-live="polite" style="margin-top:.5rem;"></div> 
+</div>
+ 
+ <div class="field" id="minorRightsForm" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+  <h2>Minor Rights Assignment</h2> 
+  <div class="field" style="margin-bottom:.75rem;">
+    <label for="minorSelect">Minor</label>
+	<select id="minorSelect" aria-label="Select Minor"></select> 
+  </div> <div class="field" style="margin-bottom:.75rem;"> 
+  <label for="regionSelect">Track Rights (region pairs)</label> 
+  <select id="regionSelect" aria-label="Region"></select> 
+  </div> 
+  <button type="button" id="minorSubmit" class="primary">Submit Minor Rights</button> 
+  <div id="minorStatus" aria-live="polite" style="margin-top:.5rem;"></div>
+</div>
+
+<div class="field" id="setCompaniesAsInactive" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+  <h2>Set Companies as inactive/active</h2> 
+  <div class="field" style="margin-bottom:.75rem;">
+    <label for="CompanyInactiveSelect">Company to de-/activate</label>
+	<select id="CompanyInactiveSelect" aria-label="Select Minor"></select> 
+  </div>
+  <button type="button" id="deactivateCompanyBtn" class="primary">De-/Activate Company</button> 
+  <div id="deactivateStatus" aria-live="polite" style="margin-top:.5rem;"></div>
+</div>
+
+<div class="field" id="rustTrains" style="border:1px solid #ddd; padding:1rem; border-radius:6px; max-width:680px;">
+  <h2>Rust/Unrust Trains</h2> 
+  <div class="field" style="margin-bottom:.75rem;">
+    <label for="rustTrainsSelect">Train level to un-/rust</label>
+	<select id="rustTrainsSelect" aria-label="rust Trains"></select> 
+  </div>
+  <button type="button" id="rustTrainsBtn" class="primary">Un-/Rust Trains</button> 
+  <div id="rustStatus" aria-live="polite" style="margin-top:.5rem;"></div>
+</div>
+ 
+</form>
+</main>
+<script>
+
+async function loadState()
+{
+  const r = await fetch('/state');
+  if (!r.ok) throw new Error('Failed to load state');
+  return await r.json();
+}
+let stateCache = null;
+let trainsByOwner = {};
+
+function renderDropdown(dropdown, hits, onPick) 
+{
+  dropdown.innerHTML = '';
+  hits.forEach(it => 
+  {
+    const div = document.createElement('div');
+	div.className = 'item';
+	div.textContent = it.name + ' (' + it.type + ')';
+	div.dataset.id = it.id;
+	div.addEventListener('mousedown', (e) => 
+	{
+      e.preventDefault();
+	  onPick(it);
+	  dropdown.style.display = 'none';
+    });
+	dropdown.appendChild(div);
+  });
+  dropdown.style.display = hits.length ? 'block' : 'none';
+}
+
+function showAllInDropdown(dropdown) {
+  const hits = allEntities;
+  renderDropdown(dropdown, hits, (item) => 
+  {
+ // fill input and id
+   const input = dropdown.closest('.col.field')?.querySelector('input');
+   const inputId = input?.id;
+    if (inputId) 
+    {
+      if (inputId === 'entity1_combo') 
+	  {
+        document.getElementById('entity1_combo').value = item.name;
+        document.getElementById('entity1_combo').dataset.selectedId = item.id;
+      } 
+	  else if (inputId === 'entity2_combo') 
+	  {
+        document.getElementById('entity2_combo').value = item.name;
+	    document.getElementById('entity2_combo').dataset.selectedId = item.id;
+      }
+    }
+// store in span for payload
+    if (inputId === 'entity1_combo') document.getElementById('entity1_id').textContent = item.id;
+    if (inputId === 'entity2_combo') document.getElementById('entity2_id').textContent = item.id;
+  });
+  dropdown.style.display = hits.length ? 'block' : 'none';
+}
+
+async function initCombos() 
+{
+  const state = await loadState();
+  stateCache = state; 
+  allEntities = [ ...stateCache.entities.filter(e => e.id === 'bank_main' || e.type === 'Player' || ((e.type === 'Major' || e.type === 'Minor') && e.active === true)) ];  
+  // Entity 1 combo 
+  const e1Input = document.getElementById('entity1_combo'); 
+  const e1Dropdown = document.getElementById('entity1_dropdown');
+  if (!window.__PORT_MARKER_INITED) 
+  {  
+    e1Input.addEventListener('input', () => 
+    {
+      const q = e1Input.value.toLowerCase();
+	  const hits = allEntities.filter(e => e.name.toLowerCase().includes(q) || e.id.toLowerCase().includes(q));
+	  renderDropdown(e1Dropdown, hits, (item) => 
+	  {
+        e1Input.value = item.name;
+	    e1Input.dataset.selectedId = item.id;
+	    document.getElementById('entity1_id').textContent = item.id;
+      });
+    });
+    e1Input.addEventListener('blur', () => setTimeout(() => e1Dropdown.style.display='none', 120));
+  }
+  // Entity 2 combo 
+  const e2Input = document.getElementById('entity2_combo');
+  const e2Dropdown = document.getElementById('entity2_dropdown');
+  if (!window.__PORT_MARKER_INITED) 
+  {
+    e2Input.addEventListener('input', () => 
+    {
+      const q = e2Input.value.toLowerCase();
+	  const hits = allEntities.filter(e => e.name.toLowerCase().includes(q) || e.id.toLowerCase().includes(q));
+	  renderDropdown(e2Dropdown, hits, (item) => 
+	  {
+	    e2Input.value = item.name;
+	    e2Input.dataset.selectedId = item.id;
+ 	    document.getElementById('entity2_id').textContent = item.id;
+      });
+    });
+    e2Input.addEventListener('blur', () => setTimeout(() => e2Dropdown.style.display='none', 120));
+    // Entity 1 focus
+    e1Input.addEventListener('focus', () => {
+      showAllInDropdown(e1Dropdown);
+    });
+    // Entity 2 focus
+    e2Input.addEventListener('focus', () => {
+    showAllInDropdown(e2Dropdown);
+    });
+  }  
+}
+document.addEventListener('DOMContentLoaded', initCombos);
+
+function selectTopForInput(inputId, dropdownId, idHolder) 
+{ 
+  const input = document.getElementById(inputId); 
+  const dropdown = document.getElementById(dropdownId); 
+  const items = dropdown.querySelectorAll('.item'); 
+  if (!items.length) return;
+  const top = items[0];
+  input.value = top.textContent;
+  input.dataset.selectedId = top.dataset.id;
+  document.getElementById(idHolder).textContent = top.dataset.id; dropdown.style.display = 'none';
+}
+
+
+document.getElementById('entity1_combo').addEventListener('keydown', (e) => {
+if (e.key === 'Tab' && document.getElementById('entity1_dropdown').children.length) {
+e.preventDefault();
+selectTopForInput('entity1_combo','entity1_dropdown','entity1_id');
+}
+});
+
+document.getElementById('entity2_combo').addEventListener('keydown', (e) => {
+if (e.key === 'Tab' && document.getElementById('entity2_dropdown').children.length) {
+e.preventDefault();
+selectTopForInput('entity2_combo','entity2_dropdown','entity2_id');
+}
+});
+
+async function handleSubmit(evt) {
+  evt.preventDefault();
+  const amount = parseFloat(document.getElementById('amount').value);
+  const aId = document.getElementById('entity1_id').textContent;
+  const bId = document.getElementById('entity2_id').textContent;
+  const aLabel = document.getElementById('entity1_combo').value;
+  const bLabel = document.getElementById('entity2_combo').value;
+  if (isNaN(amount) || amount <= 0) 
+  {
+    alert('Please enter a valid positive amount.');
+    return;
+  }
+  if (!aId || !bId || aId === bId || aLabel.trim() === '' || bLabel.trim() === '') 
+  {
+    alert('Please select two different entities (via autocomplete or dropdown).');
+    return;
+  }
+  const payload = 
+  {
+	amount: amount,
+	from: document.getElementById('reverseMoneyFlow').checked ? bId : aId,
+	to: document.getElementById('reverseMoneyFlow').checked ? aId : bId
+  };
+  const res = await fetch('/transfer', 
+  {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  const status = document.getElementById('transferStatus');
+  if (!res.ok) 
+  { 
+    status.textContent = 'Error: ' + (data?.error || 'unknown'); 
+  } else { 
+    status.textContent = `Transferred ${data.amount} from ${data.from} to ${data.to}.`;
+	const fresh = await fetch('/state').then(r=>r.json());
+	stateCache = fresh; 
+	// re-init to reflect new owner 
+	refreshAllForms();
+  }
+  document.getElementById('reverseMoneyFlow').checked = false;
+}
+	
+document.getElementById('amount').addEventListener('keydown', (e) => 
+{
+  if (e.key === 'Enter') 
+  {
+    e.preventDefault();
+    document.getElementById('entity1').focus();
+  }
+});
+    // Initial option build for dropdowns (hidden by default) // We'll build when user toggles
+	
+async function populateMajorCompanies() 
+{
+  const state = await loadState();
+  stateCache = state;
+  const majors = stateCache.entities.filter(e => e.active === true && (e.type === 'Major' || e.type === 'Minor'))
+  .filter(m => 
+  {
+    const relevantShare = (stateCache.shares || []).find(s => s.originCompanyId === m.id && s.percentage > 0.1);
+	if (!relevantShare) return false;
+	const owner = (stateCache.entities || []).find(e => e.id === relevantShare.ownerEntityId);
+	return owner?.type === 'Player';
+  });
+  const sel = document.getElementById('companyDistribute');
+  if (!sel) return;
+  sel.innerHTML = majors.map(m => `<option value="${m.id}">${m.name}</option>`).join('');
+  // Ensure initial halfPay state matches the first option
+  const initialId = sel.value || (sel.options[0] && sel.options[0].value);
+  company = stateCache.entities.find(e => e.id === initialId);
+  enforceCheckboxes(company);
+  // Attach change handler without touching shares
+  if (!window.__PORT_MARKER_INITED) 
+  {	
+	sel.addEventListener('change', (e) => 
+	{
+      const cid = e.target.value;
+	  company = stateCache.entities.find(e => e.id === cid);
+	  enforceCheckboxes(company);
+	});
+    const btn = document.getElementById('distributeBtn');
+    if (btn) btn.addEventListener('click', distributeGainsByCompany);
+  }
+}
+document.addEventListener('DOMContentLoaded', populateMajorCompanies);
+	
+function enforceCheckboxes(company)
+{
+  const halfPayCheckbox = document.getElementById('halfPay');
+  const oeRunCheckbox = document.getElementById('oe_run');
+  if (!halfPayCheckbox) return;
+  if (!oeRunCheckbox) return;
+  console.log('enforceCheckboxes:', company.name);
+  const isMinor = company.type === 'Minor' ? true : false;
+  const isNational = company.mode === 'National' ? true : false;
+  if (isMinor) 
+  {
+	if (!halfPayCheckbox.disabled || halfPayCheckbox.checked !== true) 
+	{
+	  halfPayCheckbox.checked = true;
+	}
+	halfPayCheckbox.disabled = true;
+	oeRunCheckbox.disabled = true;
+	oeRunCheckbox.checked = false;
+  } else {
+	  halfPayCheckbox.disabled = false;
+	  halfPayCheckbox.checked = false;
+	  oeRunCheckbox.disabled = false;
+	  if ( company.oe_run === true)
+	  {
+	    oeRunCheckbox.checked = true;
+	  } else {
+	    oeRunCheckbox.checked = false;
+	  }
+	  if (isNational)
+	  {
+	    halfPayCheckbox.disabled = true;
+	    halfPayCheckbox.checked = false;
+		oeRunCheckbox.disabled = true;
+	  }
+  }
+}
+	
+async function distributeGainsByCompany() 
+{ 
+  const companyId = document.getElementById('companyDistribute').value; 
+  const amount = parseFloat(document.getElementById('amountDistribute').value);
+  const halfPay = document.getElementById('halfPay')?.checked ? true : false;
+  const oeRun = document.getElementById('oe_run')?.checked ? true : false;
+  
+  if (!companyId) { alert('Select a Major Company.'); return; } 
+  if (isNaN(amount) || amount < 0) { alert('Enter a positive amount or zero.'); return; }
+  const res = await fetch('/distribute_gains_by_company', 
+  {
+	method: 'POST',
+	headers: { 'Content-Type': 'application/json' },
+	body: JSON.stringify({ amount, companyId, halfPay, oeRun })
+  });
+  const data = await res.json();
+  const status = document.getElementById('distributeStatus');
+  if (!res.ok) 
+  { 
+    status.textContent = 'Error: ' + (data?.error || 'unknown'); 
+  } else { 
+    status.textContent = `Company ${data.company} has distributed ${data.amount}.`;
+	const fresh = await fetch('/state').then(r=>r.json());
+	stateCache = fresh; 
+	// re-init to reflect new owner 
+	refreshAllForms();
+  }
+}
+	
+async function populateMajorCompanies_Buy() 
+{
+  const state = await loadState();
+  stateCache = state;
+  const majors = stateCache.entities.filter(e => (e.type === 'Major' || e.type === 'Minor' || e.type === 'Private') && e.active === true)
+  .sort((a,b) => 
+  {
+    const rank = t => (t === 'Private' || t === 'Minor' ? 2 : 1); //Major before Minor before Private same rank
+	const ra = rank(a.type);
+	const rb = rank(b.type);
+	if (ra !== rb) return ra -rb;
+	//preserve original order for equal ranks (stable sort)
+	return 0;
+  });
+	
+  const sel = document.getElementById('companyDistributeShare');
+  if (!sel) return;
+  sel.innerHTML = majors.map(m => `<option value="${m.id}">${m.name}</option>`).join('');
+  // load shares for initial selection
+  await populateSharesForCompany(majors[0]?.id);
+  await populateRecipients();
+  if (!window.__PORT_MARKER_INITED) 
+  {	
+	const btn = document.getElementById('shareActionBtn');
+    if (btn) btn.addEventListener('click', moveShareOwnership);
+  }
+	
+}
+
+async function populateSharesForCompany(companyId)
+{
+  const state = await loadState();
+  stateCache = state;
+  const shares = (stateCache.shares || []).filter(sh => sh.originCompanyId === companyId);
+  const shSel = document.getElementById('shareSelect');
+  const shareValueSel = document.getElementById('shareValue');
+  const company = (stateCache.entities || []).find(e => e.id === companyId);
+  if (!shSel) return;
+  shSel.innerHTML = shares.map(sh => 
+  {
+    const owner = stateCache.entities.find(e => e.id === sh.ownerEntityId);
+    const label = `${sh.name} (Owner: ${owner?.name || sh.ownerEntityId})`;
+    return `<option value="${sh.name}">${label}</option>`;
+  }).join('');
+  if ( company.type === 'Private')
+  {
+    shareValueSel.value = company.value;
+  }
+}
+document.addEventListener('DOMContentLoaded', populateMajorCompanies_Buy);
+document.getElementById('companyDistributeShare')?.addEventListener('change', (e) => populateSharesForCompany(e.target.value));
+	
+async function populateRecipients()
+{ 
+  const state = await loadState();
+  stateCache = state; 
+  const players = stateCache.entities.filter(e => e.type === 'Player');
+  const majors = stateCache.entities.filter(e => e.type === 'Major'); 	
+  const bank = stateCache.entities.find(e => e.id === 'bank_main'); 
+  const sel = document.getElementById('newOwner'); 
+  sel.innerHTML = `<option value="${bank.id}">${bank.name} (Bank)</option>` + players.map(p => `<option value="${p.id}">${p.name}</option>`).join('') + majors.map(p => `<option value="${p.id}">${p.name}</option>`).join(''); 
+}
+	
+
+async function moveShareOwnership() 
+{
+  const state = await loadState();
+  stateCache = state; 
+  const companyId = document.getElementById('companyDistributeShare').value;
+  const shareName = document.getElementById('shareSelect').value;
+  const match = (stateCache.shares || []).find(sh => sh.name === shareName);
+  const shareId = match ? match.id : undefined;
+  if (!shareId) { alert('Share not found for that name'); return; }
+  const newOwnerId = document.getElementById('newOwner').value;
+  const shareValue = parseFloat(document.getElementById('shareValue').value);
+  const res = await fetch('/transfer_share', 
+  {
+	method: 'POST',
+	headers: { 'Content-Type': 'application/json' },
+	body: JSON.stringify({ companyId, shareId, newOwnerId, shareValue: isNaN(shareValue) ? 0 : shareValue })
+  });
+  const data = await res.json();
+  const status = document.getElementById('buyStockStatus');
+  if (!res.ok) 
+  { 
+    status.textContent = 'Error: ' + (data?.error || 'unknown'); 
+  } else { 
+    status.textContent = `${data.transfer}`;
+	// refresh state 
+	const fresh = await fetch('/state').then(r=>r.json());
+	stateCache = fresh; 
+	// re-init to reflect new owner 
+	refreshAllForms();
+  }
+}
+
+async function loadMajorsForToggle()
+{
+  const state = await loadState();
+  stateCache = state; 
+  const majors = stateCache.entities.filter(e => e.type === 'Major' && e.active === true);
+  const sel = document.getElementById('majorModeCompany'); 
+  if (!sel) return;
+  sel.innerHTML = majors.map(m => `<option value="${m.id}">${m.name} - ${m.mode || 'Regional'}</option>`).join('');
+  if (!window.__PORT_MARKER_INITED) 
+  { 
+    const btn = document.getElementById('toggleMajorModeBtn');
+    if (btn) btn.addEventListener('click', toggleMajors);
+  }  
+}
+
+ 
+document.addEventListener('DOMContentLoaded', loadMajorsForToggle);
+ 
+async function toggleMajors() 
+{ 
+  const cid = document.getElementById('majorModeCompany')?.value;
+  if (!cid) 
+  { 
+	alert('Select a Major company to toggle'); 
+    return; 
+  } 
+  // Call server to toggle mode if you implement a route (see Option 2) 
+  const res = await fetch('/toggle_company_mode', 
+  { 
+	method: 'POST',
+	headers: { 'Content-Type': 'application/json' },
+	body: JSON.stringify({ companyId: cid }) 
+  });
+  const data = await res.json();
+  if (!res.ok)
+  {
+    document.getElementById('toggleStatus').textContent = 'Error: ' + (data?.error || 'Unknown');
+	return;	
+  }
+    document.getElementById('toggleStatus').textContent = `${data.name} set to ${data.newMode}.`;
+    
+  refreshAllForms(); 
+   
+}
+
+
+async function initTradeForm() 
+{ 
+  const state = await loadState();
+  stateCache = state; // Build owners with trains 
+  const owners = state.entities.filter(e => 
+  { 
+  // owners with trains: bank_main, majors, minors that actually own at least one train 
+    const owns = state.trains && state.trains.find(t => t.ownerEntityId === e.id); return (e.id === 'bank_main') || (owns);
+  });
+  const ownerSel = document.getElementById('ownerSelect');
+  const rusted = document.getElementById('rusted');
+  ownerSel.innerHTML = owners.map(o => `<option value="${o.id}">${o.name} (${o.id})</option>`).join('');
+  // Build new owner list: Bank Main + Majors + Minors 
+  const newOwnerSel = document.getElementById('newOwnerSelect');
+  const bank = state.entities.find(e => e.id === 'bank_main');
+  const majors = state.entities.filter(e => e.type === 'Major' && e.active === true);
+  const minors = state.entities.filter(e => e.type === 'Minor' && e.active === true);
+  newOwnerSel.innerHTML = [ `<option value="${bank?.id}">${bank?.name} (${bank?.id})</option>`, ...majors.map(m => `<option value="${m.id}">${m.name} (${m.id})</option>`), ...minors.map(m => `<option value="${m.id}">${m.name} (${m.id})</option>`) ].join('');
+  // Populate trains for the first owner by default 
+  await updateTrainList(); 
+  // Listen for owner change to repopulate trains 
+  ownerSel.addEventListener('change', updateTrainList);
+  rusted.addEventListener('change', updateTrainList);  
+  // When train changes, update available sides and price
+  if (!window.__PORT_MARKER_INITED) 
+  {
+    document.getElementById('trainSelect').addEventListener('change', updateSideAndPrice); 
+    // Buy button
+    const btn = document.getElementById('buySideBtn');	
+    if (btn) btn.addEventListener('click', submitTrade); // Initial second step 
+  }
+  updateSideAndPrice();
+  
+}
+
+async function updateTrainList() 
+{ 
+  const ownerId = document.getElementById('ownerSelect').value;
+  const trainSel = document.getElementById('trainSelect');
+  const rusted = document.getElementById('rusted')?.checked ? true : false;
+  if (rusted)
+  {
+	const trains = (stateCache?.trains || []).filter(t => t.ownerEntityId === ownerId);
+    trainSel.innerHTML = trains.map(t => `<option value="${t.id}">${t.name} (${t.id})</option>`).join('');
+  } else {
+    unrustedTrains = (stateCache?.trains || []).filter(t => t.ownerEntityId === ownerId && (!t.rusted));
+    trainSel.innerHTML = unrustedTrains.map(t => `<option value="${t.id}">${t.name} (${t.id}) ${t.rusted}</option>`).join('');	
+  }
+  await updateSideAndPrice();
+  
+}
+
+function updateSideAndPrice() 
+{
+  const trainSel = document.getElementById('trainSelect');
+  const trainId = trainSel.value;
+  train = (stateCache?.trains || []).find(t => t.id === trainId);
+  if (!train)
+  {
+    train = {
+            "id": "no_train",
+            "name": "no_train",
+            "ownerEntityId": "bank_main",
+            "sides": [
+              {
+                "id": "no_train",
+                "name": "no_train",
+                "price": 0
+              }
+            ],
+            "sideused": "no_train",
+            "rusted": false
+          };
+  }
+  const activeSides = train.sides || [];
+  const showAll = train.sideused === 'both';
+  const displaySides = showAll ? activeSides : activeSides.filter(s => s.id === train.sideused);
+  const sideSel = document.getElementById('sideSelect');
+  const newOwnerSel = document.getElementById('newOwnerSelect');
+  const priceInput = document.getElementById('priceInput');
+  const oldOwner = stateCache.entities.find(e => e.id === train.ownerEntityId);
+  
+  if (!train || !sideSel) 
+  {
+    if (sideSel) sideSel.innerHTML = '';
+    if (priceInput) priceInput.value = '';
+    return;
+  }
+  sideSel.innerHTML = displaySides.map(s => `<option value="${s.id}">${s.name} (id:${s.id})</option>`).join('');
+  // pick default: prefer 'local' if present else first 
+  const defaultSide = displaySides.find(s => s.id === 'local') || displaySides[0];
+  const newOwner = stateCache.entities.find(e => e.id === newOwnerSel.value);
+  if (defaultSide)
+  {
+    sideSel.value = defaultSide.id;
+	if (newOwner.mode === 'National')
+	{
+	  if ( oldOwner.id === 'bank_main')
+	  {
+	    priceInput.value = 0;
+	  } else {
+	    priceInput.value = Math.round(defaultSide?.price/2) ?? '';
+	  }
+	} else if (oldOwner.type === 'Major' && oldOwner.mode === 'National')
+	{
+	  priceInput.value = 0;
+	} else {
+	  priceInput.value = defaultSide?.price ?? '';
+	} 
+  } else { 
+    priceInput.value = '';
+  }
+	
+	 
+  // If you want to fill price when side changes 
+  sideSel.onchange = () => 
+  {
+    const chosen = displaySides.find(s => s.id === sideSel.value);
+	const newOwner = stateCache.entities.find(e => e.id === newOwnerSel.value);
+	if (newOwner.mode === 'National')
+	{
+	  if ( oldOwner.id === 'bank_main')
+	  {
+	    priceInput.value = 0;
+	  } else {
+	    priceInput.value = Math.round(chosen?.price/2) ?? '';
+	  }
+	} else {
+	  priceInput.value = chosen?.price ?? '';
+	}
+  };
+  newOwnerSel.onchange = () => 
+  {
+    const chosen = displaySides.find(s => s.id === sideSel.value);
+	const newOwner = stateCache.entities.find(e => e.id === newOwnerSel.value);
+	if (newOwner.mode === 'National')
+	{
+	  if ( oldOwner.id === 'bank_main')
+	  {
+	    priceInput.value = 0;
+	  } else {
+	    priceInput.value = Math.round(chosen?.price/2) ?? '';
+	  }
+	} else {
+	  priceInput.value = chosen?.price ?? '';
+	}
+  };
+  
+} 
+
+async function submitTrade() 
+{ 
+  const trainId = document.getElementById('trainSelect').value;
+  train = (stateCache?.trains || []).find(t => t.id === trainId);
+  if (!train) return;
+  const c_price = parseFloat(document.getElementById('priceInput').value);
+  const newOwnerId = document.getElementById('newOwnerSelect').value;
+  const sideused = document.getElementById('sideSelect').value; 
+  const payload = { trainId, c_price, newOwnerId, sideused };
+  const res = await fetch('/train_buy_side', 
+  { 
+    method: 'POST', 
+	headers: { 'Content-Type': 'application/json' }, 
+	body: JSON.stringify(payload) 
+  });
+  const data = await res.json();
+  const status = document.getElementById('tradeStatus');
+  if (!res.ok) 
+  { 
+    status.textContent = 'Error: ' + (data?.error || 'unknown'); 
+  } else { 
+    status.textContent = `${data.train} purchased by ${data.owner} for ${data.price} from ${data.oldOwner}.`;
+	// refresh state 
+	const fresh = await fetch('/state').then(r=>r.json());
+	stateCache = fresh; 
+	// re-init to reflect new owner 
+	refreshAllForms();
+  } 
+} 
+
+document.addEventListener('DOMContentLoaded', initTradeForm);
+
+const REGION_PAIRS = [ "Spanien/Portugal","Frankreich/Belgien","Großbritannien","Deutschland/Niederlande/Schweiz", "Skandinavien","Russland","Österreich-Ungarn","Italien" ];
+
+async function loadMinors() 
+{
+  const state = await loadState();
+  stateCache = state;
+  const minors = (stateCache.entities || []).filter(e => e.type === 'Minor');
+  minorsState = minors;
+  const minorSel = document.getElementById('minorSelect');
+  minorSel.innerHTML = minors.map(m => `<option value="${m.id}">${m.name}</option>`).join('');
+} 
+
+let minorsState = [];
+async function initMinorRightsForm()
+{ 
+  await loadMinors();
+  loadRegions();
+  if (!window.__PORT_MARKER_INITED) 
+  {
+    const btn = document.getElementById('minorSubmit');	
+    if (btn) btn.addEventListener('click', submitMinorRights);
+  }
+} 
+
+function loadRegions() 
+{ 
+  const regSel = document.getElementById('regionSelect');
+  regSel.innerHTML = REGION_PAIRS.map(p => `<option value="${p}">${p}</option>`).join('');
+}
+
+async function submitMinorRights()
+{ 
+  const minorId = document.getElementById('minorSelect').value;
+  const region = document.getElementById('regionSelect').value;
+  if (!minorId) 
+  { 
+    alert('Select a minor');
+	return; 
+  } 
+  const res = await fetch('/minor_track_rights', 
+  { 
+    method:'POST',
+	headers:{'Content-Type':'application/json'},
+	body: JSON.stringify({ minorId, region }) 
+  });
+  const data = await res.json();
+  const status = document.getElementById('minorStatus');
+  if (!res.ok) 
+  { 
+	status.textContent = 'Error: ' + (data?.error || 'Unknown');
+	return;
+  }  
+  status.textContent = `${data.minor}' rights saved for ${data.region}`;
+  const fresh = await fetch('/state').then(r=>r.json());
+  stateCache = fresh; 
+  // re-init to reflect new owner 
+  refreshAllForms();
+}
+document.addEventListener('DOMContentLoaded', initMinorRightsForm);
+
+async function initPortMarkerForm()
+{
+  const state = await loadState();
+  stateCache = state;
+  const markers = stateCache.port_authority_markers || [];
+  const markerSel = document.getElementById('markerSelect');
+  markerSel.innerHTML = markers.map(m => 
+  { 
+    const owner = stateCache.entities.find(e => e.id === m.ownerEntityId);
+    const ownerLabel = owner ? owner.name : m.ownerEntityId; 
+	return `<option value="${m.id}">${m.name} (Owner: ${ownerLabel})</option>`; 
+  }).join(''); 
+  const dest = document.getElementById('destSelect');
+  const bank = stateCache.entities.find(e => e.id === 'bank_main');
+  const majors = stateCache.entities.filter(e => e.type === 'Major' && e.active === true);
+  dest.innerHTML = [ `<option value="${bank?.id}">${bank?.name} (${bank?.id})</option>`, ...majors.map(m => `<option value="${m.id}">${m.name} (${m.id})</option>`)].join('');
+  if (!window.__PORT_MARKER_INITED) 
+  {
+    const btn = document.getElementById('sellMarkerBtn');	
+    if (btn) btn.addEventListener('click', () => { handleMarkerSell();});
+  }
+}
+
+  
+async function handleMarkerSell() 
+{ 
+  const markerId = document.getElementById('markerSelect').value;
+  const newOwnerId = document.getElementById('destSelect').value;
+  if (!markerId || !newOwnerId) return;
+	
+  const payload = { markerId, newOwnerId };
+  const res = await fetch('/marker_sell', 
+  { 
+    method:'POST',
+	headers:{'Content-Type':'application/json'},
+	body: JSON.stringify(payload) 
+  }); 
+  const data = await res.json();
+  if (!res.ok) 
+  { 
+    document.getElementById('markerStatus').textContent = 'Error: ' + (data?.error || 'Unknown');
+	return;
+  } else {
+    document.getElementById('markerStatus').textContent = `${data.marker} sold to ${data.newOwner}`;
+  }
+  const fresh = await fetch('/state').then(r=>r.json());
+  stateCache = fresh; 
+  // re-init to reflect new owner 
+  refreshAllForms();
+} 
+	
+document.addEventListener('DOMContentLoaded', initPortMarkerForm);
+
+// Initialize form: populate company and tokens 
+
+async function initMarkerBoardForm() {
+  const state = await loadState();
+  stateCache = state;
+
+  const majors = stateCache.entities.filter(e => e.type === 'Major'&& (e.tokens?.length ?? 0) > 0 && e.active === true);
+  const minors = stateCache.entities.filter(e => e.type === 'Minor'&& (e.tokens?.length ?? 0) > 0 && e.active === true); 
+  const companySel = document.getElementById('companySelect');
+  if (!companySel) return;
+  companySel.innerHTML = [...minors.map(n => `<option value="${n.id}">${n.name} (${n.id})</option>`),...majors.map(m => `<option value="${m.id}">${m.name} (${m.id})</option>`),].join('');
+  updateTokenList();
+  companySel.addEventListener('change', updateTokenList);
+  if (!window.__PORT_MARKER_INITED) 
+  {
+    const btn = document.getElementById('placeMarkerBtn');	
+    if (btn) btn.addEventListener('click', placeTokenOnBoard);
+  }
+}
+
+// Update tokens dropdown based on selected company 
+function updateTokenList() 
+{
+  const companyId = document.getElementById('companySelect').value;
+  const tokenSel = document.getElementById('tokenSelect');
+  const priceInput = document.getElementById('tokenpriceInput');
+  const company = (stateCache?.entities || []).find(e => e.id === companyId);
+  const tokensAll = company.tokens || [];
+
+  // If this is a Major in Major mode, filter to major tokens only
+  const isMajorEntity = company.type === 'Major';
+  const isMajorMode = isMajorEntity && (company.mode === 'Major');
+  const tokens = isMajorMode ? tokensAll : tokensAll.filter(t => t.major === false) ;
+  if (!tokenSel) return;
+
+  tokenSel.innerHTML = tokens.map(t => `<option value="${t.id}">${t.id} (value: ${t.value} onboard: ${t.onboard})</option>`).join('');
+  const first = tokens[0];
+  if (first && priceInput) {
+  priceInput.value = first.onboard ? 0 : first.value;
+  }
+
+  // Always update price on change
+  tokenSel.onchange = () => {
+  const t = tokens.find(x => x.id === tokenSel.value);
+  if (priceInput) priceInput.value = t?.onboard ? 0 : t?.value ?? '';
+  };
+} 
+
+// Submit to place on board 
+
+async function placeTokenOnBoard()
+{ 
+  const companyId = document.getElementById('companySelect').value;
+  const tokenId = document.getElementById('tokenSelect').value;
+  const priceRaw = document.getElementById('tokenpriceInput').value; 
+  const price = priceRaw === '' ? undefined : parseFloat(priceRaw); 
+  if (!companyId || !tokenId) 
+  { 
+    alert('Select company and token');
+	return;
+  } 
+  // Optional: derive from state if you want to verify token price 
+  const payload = { companyId, tokenId, price: isNaN(price) ? 0 : price };
+  const res = await fetch('/marker_place_on_board', 
+  { 
+    method:'POST',
+	headers:{'Content-Type':'application/json'},
+	body: JSON.stringify(payload) 
+  }); 
+  const data = await res.json();
+  if (!res.ok) 
+  { 
+    document.getElementById('markerBoardStatus').textContent = 'Error: ' + (data?.error || 'Unknown');
+	return;
+  } else {
+    if (data.onboard)
+    {
+      document.getElementById('markerBoardStatus').textContent = `${data.company}'s ${data.token} placed on board.`;
+    } else {
+	  document.getElementById('markerBoardStatus').textContent = `${data.company}'s ${data.token} placed on company.`;
+	}
+  }
+  const fresh = await fetch('/state').then(r=>r.json());
+	stateCache = fresh; 
+	// re-init to reflect new owner 
+	refreshAllForms();
+}
+
+document.addEventListener('DOMContentLoaded', initMarkerBoardForm);
+
+async function payPrivatesMoney()
+{
+  const payload = {price: 0};
+  console.log('Testosteron');
+  const res = await fetch('pay_privates',
+  {
+    method:'POST',
+	headers:{'Content-Type':'application/json'},
+	body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (!res.ok)
+  {
+    document.getElementById('payPrivatesStatus').textContent = 'Error: ' + (data?.error || 'Unknown');
+	return;	
+  }
+  timestamp= new Date().toISOString();
+  document.getElementById('payPrivatesStatus').textContent = `Privates have paid gains at ${timestamp}.`;
+  const fresh = await fetch('/state').then(r=>r.json());
+	stateCache = fresh; 
+	// re-init to reflect new owner 
+	refreshAllForms();
+} 
+
+if (!window.__PORT_MARKER_INITED) 
+{
+  const btn = document.getElementById('payPrivatesBtn');	
+  if (btn) btn.addEventListener('click', () => { payPrivatesMoney();});
+};
+
+async function populateCompaniesToDeactivate() 
+{
+  const state = await loadState();
+  stateCache = state;
+  const companies = stateCache.entities.filter(e => e.type === 'Major' || e.type === 'Minor' || e.type === 'Private')
+  const sel = document.getElementById('CompanyInactiveSelect');
+  if (!sel) return;
+  sel.innerHTML = companies.map(m => `<option value="${m.id}">${m.name} active: ${m.active}</option>`).join('');
+  
+  if (!window.__PORT_MARKER_INITED) 
+  {	
+	const btn = document.getElementById('deactivateCompanyBtn');
+    if (btn) btn.addEventListener('click', deactivateCompany);
+  }
+}
+document.addEventListener('DOMContentLoaded', populateCompaniesToDeactivate);
+
+async function deactivateCompany()
+{
+  const companyId = document.getElementById('CompanyInactiveSelect').value;
+  const payload = {companyId};
+  const res = await fetch('deactivate_company',
+  {
+    method:'POST',
+	headers:{'Content-Type':'application/json'},
+	body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (!res.ok)
+  {
+    document.getElementById('deactivateStatus').textContent = 'Error: ' + (data?.error || 'Unknown');
+	return;	
+  }
+  if (data.active)
+  {
+    document.getElementById('deactivateStatus').textContent = `${data.name} enabled.`;
+  } else {
+    document.getElementById('deactivateStatus').textContent = `${data.name} disabled.`;
+  }
+  const fresh = await fetch('/state').then(r=>r.json());
+	stateCache = fresh; 
+	refreshAllForms();
+}
+document.addEventListener('DOMContentLoaded', populateCompaniesToDeactivate);
+
+async function populateTrainLevelsToRust() 
+{
+  const state = await loadState();
+  stateCache = state;
+  const trains = stateCache.trains.filter(t => t.id === 'train_2_1' || t.id=== 'train_3_1' || t.id === 'train_4_1');
+  const sel = document.getElementById('rustTrainsSelect');
+  if (!sel) return;
+  sel.innerHTML = trains.map(t =>
+  {
+    const status = t.rusted ? 'rusted' : 'unrusted';
+    return `<option value="${t.name}">${t.name} (${status})</option>`;
+  }).join('');
+  
+  if (!window.__PORT_MARKER_INITED) 
+  {	
+	const btn = document.getElementById('rustTrainsBtn');
+    if (btn) btn.addEventListener('click', rustTrains);
+  }
+}
+document.addEventListener('DOMContentLoaded', populateTrainLevelsToRust);
+
+async function rustTrains()
+{
+  
+  const trainLvl = document.getElementById('rustTrainsSelect').value;
+  const payload = {trainLvl};
+  console.log(trainLvl);
+  const res = await fetch('rust_trains',
+  {
+    method:'POST',
+	headers:{'Content-Type':'application/json'},
+	body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (!res.ok)
+  {
+    document.getElementById('rustStatus').textContent = 'Error: ' + (data?.error || 'Unknown');
+	return;	
+  }
+  if (data.rusted)
+  {
+    document.getElementById('rustStatus').textContent = `${trainLvl} rusted.`;
+  } else {
+    document.getElementById('rustStatus').textContent = `${trainLvl} unrusted.`;
+  }
+  const fresh = await fetch('/state').then(r=>r.json());
+	stateCache = fresh; 
+	refreshAllForms();
+}
+
+
+function refreshAllForms() 
+{
+  window.__PORT_MARKER_INITED = true;
+  // Always reload global state
+  return loadState().then(s => 
+  {
+    stateCache = s;
+    // Re-run each form's render/init function without duplicating event bindings
+    // If your initX functions are safe to call multiple times, call them:
+    if (typeof initCombos === 'function') initCombos();
+    if (typeof initCombos === 'function') populateMajorCompanies();
+    if (typeof initCombos === 'function') populateMajorCompanies_Buy();
+    if (typeof initTradeForm === 'function') initTradeForm();
+    if (typeof loadMajorsForToggle === 'function') loadMajorsForToggle();
+    if (typeof initMinorRightsForm === 'function') initMinorRightsForm();
+    if (typeof initPortMarkerForm === 'function') initPortMarkerForm();
+    if (typeof initMarkerBoardForm === 'function') initMarkerBoardForm();
+	if (typeof initMarkerBoardForm === 'function') populateCompaniesToDeactivate();
+
+// You can also call targeted updates, e.g.:
+// updateTokenList(), updateMarkerOptions(), etc.
+  });
+}
+
+
+
+
+     </script>
+  </body>
+</html>

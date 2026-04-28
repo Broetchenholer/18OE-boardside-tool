@@ -1,0 +1,140 @@
+<!doctype html> 
+  <html lang="en"> 
+    <head> 
+	  <meta charset="UTF-8" /> 
+	  <title>Admin - Game Management</title> 
+	  <style> body { font-family: Arial, sans-serif; padding: 1rem; background:#fff; } .card { max-width: 820px; margin: 0 auto; padding: 1rem; border:1px solid #ddd; border-radius:8px; background:#f9f9f9; } label { font-weight:600; } select, input { padding: .5rem; font-size: 1rem; width: 100%; } button { padding: .6rem 1rem; font-size: 1rem; cursor: pointer; } .row { display:flex; gap:1rem; flex-wrap:wrap; align-items: center; margin-bottom: .75rem; } </style> 
+	</head> 
+	<body> 
+	  <main class="card" aria-label="Admin Game Management"> 
+	    <h1>Admin: Game Management</h1>
+        <div class="row" style="align-items:flex-end;">
+          <div style="flex:1 1 280px;">
+            <label for="currentGameSelect">Current Game</label>
+            <select id="currentGameSelect" aria-label="Current game"></select>
+          </div>
+          <div style="flex:0 0 auto; align-self:flex-end;">
+            <button id="setCurrentBtn" class="primary" style="height: 38px; padding: 0 12px;">Set Current</button>
+          </div>
+        </div>
+        <div class="row" style="margin-top:8px;">
+          <div style="flex:1;">
+            <label for="adminNewGameId">New Game ID</label>
+            <input id="adminNewGameId" placeholder="e.g. 18OE_clone" />
+			<div class="field" id="playerNamesPanel" style="margin-top:8px; display:flex; flex-wrap:wrap; gap:.5rem;"> 
+			  <span style="width:100%; font-weight:600; margin-bottom:.25rem;">Player Display Names (for up to 8 players)</span> 
+			  <input type="text" id="playerName1" placeholder="Player 1 name" style="flex:1 1 180px;" /> 
+			  <input type="text" id="playerName2" placeholder="Player 2 name" style="flex:1 1 180px;" /> 
+			  <input type="text" id="playerName3" placeholder="Player 3 name" style="flex:1 1 180px;" /> 
+			  <input type="text" id="playerName4" placeholder="Player 4 name" style="flex:1 1 180px;" /> 
+			  <input type="text" id="playerName5" placeholder="Player 5 name" style="flex:1 1 180px;" /> 
+			  <input type="text" id="playerName6" placeholder="Player 6 name" style="flex:1 1 180px;" /> 
+			  <input type="text" id="playerName7" placeholder="Player 7 name" style="flex:1 1 180px;" />  
+			  <input type="text" id="playerName8" placeholder="Player 8 name" style="flex:1 1 180px;" /> 
+			</div>
+            <button type="button" id="createGameBtn" class="secondary" style="height:38px; padding:0 12px;">Create from Template</button>
+          </div>
+          
+        </div>
+
+        <div style="margin-top: .75rem; border-top:1px solid #ddd; padding-top: .75rem;">
+          <a id="openGameLink" href="#" target="_blank" rel="noopener" style="font-weight:600;">Open selected game (18OE.html)</a>
+        </div>
+
+        <div id="adminStatus" aria-live="polite" style="margin-top:.75rem;"></div>
+
+      </main> 
+	  <script> 
+	    const API = 
+		{ 
+		  listGames: () => fetch('/games').then(r => r.ok ? r.json() : 
+		  Promise.reject('Failed')),
+		  setCurrent: (id) => fetch('/state/setCurrent', 
+		  { 
+		    method:'POST',
+			headers:{'Content-Type':'application/json'},
+			body: JSON.stringify({ gameId: id }) 
+		  }),
+	      createFromTemplate: (payload) => fetch('/games/create', 
+	      { 
+			method:'POST',
+			headers:{'Content-Type':'application/json'},
+			body: JSON.stringify(payload) 
+		  }),
+ 	    }; 
+		
+		async function renderAdmin() 
+		{
+          const data = await API.listGames();
+          const select = document.getElementById('currentGameSelect');
+          select.innerHTML = data.games.map(g => `<option value="${g}">${g}</option>`).join('');
+          const current = data.current || data.games[0];
+          if (current) select.value = current;
+          // Open current game editor without query param
+          const link = document.getElementById('openGameLink');
+          if (current) link.href = '/input'; // rely on server currentGame
+          document.getElementById('adminStatus').textContent = '';
+        } 
+		
+		async function initAdmin() 
+		{ 
+		  await renderAdmin();
+		  document.getElementById('setCurrentBtn').addEventListener('click', async () => 
+		  { 
+		    const gameId = document.getElementById('currentGameSelect').value;
+			if (!gameId) return;
+			try 
+			{ 
+			  await API.setCurrent(gameId);
+			  document.getElementById('adminStatus').textContent = 'Current game updated';
+			  await renderAdmin();
+		    } 
+			catch (e) 
+			{
+			  document.getElementById('adminStatus').textContent = 'Error: ' + e.message; 
+			} 
+		  }); 
+		  document.getElementById('createGameBtn').addEventListener('click', async () => 
+		  {
+		    const id = (document.getElementById('adminNewGameId').value || '').trim();
+		    if (!id) { alert('Enter a new game ID'); return; }
+		    const template = 'default';
+		    const playerNames = await gatherPlayerNames();
+		    const payload = { id, template, playerNames }; // playerNames may be empty
+
+		    const res = await fetch('/games/create', 
+		    {
+			  method: 'POST',
+			  headers: {'Content-Type':'application/json'},
+			  body: JSON.stringify(payload)
+		    });
+		    const data = await res.json();
+		    if (!res.ok) 
+		    {
+			  document.getElementById('adminStatus').textContent = 'Error: ' + (data?.error || 'Unknown');
+			  return;
+		    }
+		    document.getElementById('adminStatus').textContent = 'Game created';
+		    // refresh the games list
+		    await renderAdmin();
+		  });
+		} 
+		document.addEventListener('DOMContentLoaded', initAdmin);
+		
+		async function gatherPlayerNames() 
+		{
+          const names = [];
+		  for (let i = 1; i <= 8; i++) 
+		  {
+			const el = document.getElementById('playerName' + i);
+			if (!el) continue;
+			const v = (el.value || '').trim();
+			if (v) names.push(v);
+		  }
+			return names;
+		}
+
+		
+	  </script> 
+	</body> 
+</html>

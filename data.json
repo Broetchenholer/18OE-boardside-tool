@@ -1,0 +1,6041 @@
+{
+  "games": 
+  {
+    "templates": 
+	{
+      "default": 
+	  {
+        "state": 
+		{
+          "entities": [
+            {
+              "id": "bank_main",
+              "name": "Bank Main",
+              "balance": 54000,
+              "ownedByEntityId": null,
+              "type": "Bank",
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ]
+            },
+            {
+              "id": "player_1",
+              "name": "",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Player",
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ]
+            },
+            {
+              "id": "player_2",
+              "name": "",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Player",
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ]
+            },
+            {
+              "id": "player_3",
+              "name": "",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Player",
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ]
+            },
+            {
+              "id": "player_4",
+              "name": "",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Player",
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ]
+            },
+            {
+              "id": "player_5",
+              "name": "",
+              "balance": 10,
+              "ownedByEntityId": null,
+              "type": "Player",
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ]
+            },
+            {
+              "id": "player_6",
+              "name": "",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Player",
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ]
+            },
+            {
+              "id": "player_7",
+              "name": "",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Player",
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ]
+            },
+            {
+              "id": "player_8",
+              "name": "",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Player",
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ]
+            },
+            {
+              "id": "Minor_A",
+              "name": "A Silver Banner Line",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "When it is merged into a major, the bank pays cash into the\n major’s treasury equal to the current share value of the\n major, even if no share is available. The cash is never\n part of the minor's treasury.",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_B",
+              "name": "B Orange Scroll Surveyors",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "This minor counts all track upgrades as one tile point (in-\n cluding tiles with towns, but not cities, grand cities, or\n metropolises).",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_C",
+              "name": "C Golden Bell Marketplace",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "At the start of each OR the president of this minor may\n choose the position in the RRs' operating order this\n un-merged minor or its owning major will run.\n This ability is exercised anew at the beginning of each OR.\n The president announces the choice before any other RR\n operates",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_D",
+              "name": "D Green Junction Mercantile",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "When played in a city on the Map this minor's token adds\n bonus revenue to trains run to or through that city. The\n +€20 token may be placed in any city on the Map,\n except a metropolis or red zone. It must be placed during\n the lay track step. At the beginning of Train Phase 5, the\n +€20 token is removed, abd the +€40 token may be\n played in the same or different city.",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_E",
+              "name": "E Blue Coast Bridge Construction Company",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "This minor receives a 33% discount on allcoastal/river\n (blue terrain costs) track construction costs (multiply\n total cost for construction by 0.67, and round down to the\n nearest pound). Each OR, this minor may also spend 1 ad-\n ditional tile point when laying track, as long as the point\n is expended to place a yellow tile\n in a hex that has a blue terrain cost.",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_F",
+              "name": "F White Peak Mountain Railway",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "This minor receives a 33% discount on all mountain/rough (green\n terrain costs) track construction costs (multiply total cost\n for pounding by 0.67, and round down to the nearest\n pound). Each OR, this minor may also spend 1 additional\n tile point when laying track, as long as the point is ex-\n pended to place a yellow tile in a hex that has a green terrain cost.",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_G",
+              "name": "G Indigo Foundry and Iron Works",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "This minor receives an extra two tile points to use during\n its lay track step in every OR.",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_H",
+              "name": "H Great Western Steamship Company",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "This minor reduces the number of sea zones that count to-\n wards its trains' city limits. The reduction is one per OR\n during Train Phases 1 through 6, and two per OR during\n Train Phases 7 and 8.",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_J",
+              "name": "J Grey Locomotive Works",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "This minor receives a 10% discount on the purchase\n price of all trains.",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_K",
+              "name": "K Vermillion Seal Couriers",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "This minor receives revenue at the beginning of each OR.\n It is available in the round it is received to use when\n laying track and/or tokes.\n 2: 20,3-4: 40, 5-6: 50,7-8: 60",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_L",
+              "name": "L Krasnaya Strela",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "This minor has a marker which the RR may assign to a\n train, increasing that train's city limit and the number of\n towns it may count for revenue by one each — effectively,\n a “+1+1” increase. Revenue from the additional city and\n town add to the revenue generated by the train. E.g. a 2+2\n train runs as a 3+3, an 8+8 train runs as a 9+9, and a 4\n train runs as a 5+1.",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Minor_M",
+              "name": "M Compagnie Internationale des Wagons-Lits",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Minor",
+              "track_rights": "tbd",
+              "active": true,
+              "ability_text": "This minor comes with ten Pullman cars that enhance the\n revenue of a train running on a RR.",
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 0,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "Private_1",
+              "name": "Ponts et Chaussées",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "No special abilities.",
+              "value": 20,
+              "revenue": true
+            },
+            {
+              "id": "Private_2",
+              "name": "Robert Stephenson and Company",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "No special abilities.",
+              "value": 20,
+              "revenue": true
+            },
+            {
+              "id": "Private_3",
+              "name": "Wien Südbahnhof",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "During any RR's place token step, the owner of this private may place any of the RR's station tokens on the Map for free. The token must be reachable by the given RR using the same rules as if it were paying for the token. If applicable, this free placement still incurs the extra costs of placement across sea zones.",
+              "value": 40,
+              "revenue": true
+            },
+            {
+              "id": "Private_4",
+              "name": "Barclay, Bevan, Barclay & Tritton",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "This private has the ability to reset the par value of one owned regional or major on the Par Vlaue section of the info board. Alternatively, put one share into custodianship, reserving the share. Or the player can prevent the movement of one RR down due to selling of shares for the remaining SR.",
+              "value": 40,
+              "revenue": true
+            },
+            {
+              "id": "Private_5",
+              "name": "Star Harbor Trading Co.",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "This private allows free passage for one owned RR through one port city as if the RR had a port token in the city. It will however not count as a city when calculating the city limit of the train and not pay any fees when using it.",
+              "value": 60,
+              "revenue": true
+            },
+            {
+              "id": "Private_6",
+              "name": "Central Circle Transport Co.",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "This private allows free passage for one owned RR through one non-port city as if the RR had a token in the city. It will however not count as a city when calculating the city limit of the train and not pay any fees when using it.",
+              "value": 60,
+              "revenue": true
+            },
+            {
+              "id": "Private_7",
+              "name": "White Cliffs Ferry",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "At the start of train phase 5 the owner of this private may put a port token on the extra ferry token field of Lille, allowing that RR to use Lille despite the two spots being already occupied.",
+              "value": 60,
+              "revenue": true
+            },
+            {
+              "id": "Private_8",
+              "name": "Hochberg Mining & Lumber",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "The owner of this private may place this private's token on the Map during the lay track step of a controlled RR and turn the private's certificate face down to indicate ownership. The token on the Map must be placed in a hex that has arough terrain (green) construction cost of at least 45. The hex may already contain track. Optionally, it may already contain one town, which this token replaces. The hex may not contain two towns, a city, a grand city, or a metropolis. Any RR controlled by this private's owner may count the token as a town when runnin a route including this hex. The token provides revenue as follows: TP 2: 10,3-4: 20,5-6: 40, 7-8: 60",
+              "value": 80,
+              "revenue": true
+            },
+            {
+              "id": "Private_9",
+              "name": "Brandt & Brandau, Engineers",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "This private has 4 tokens that can be used to ignore the green terrain costs of hexes when laying track. Only RRs of this player may use the hex until another RR pays the terrain cost and frees the hex of the token.",
+              "value": 100,
+              "revenue": true
+            },
+            {
+              "id": "Private_10",
+              "name": "Swift Metropolitan Line",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Private",
+              "active": true,
+              "ability_text": "This private has a marker that preserves one 2+2 train as a short haul/commuter line for the duration of the game. This private's ability may be exercised at that start of Train Phase 4. When used, the player designates one of their RRs to receive one unclaimed rusted 2+2 train.",
+              "value": 120,
+              "revenue": false
+            },
+            {
+              "id": "major_01",
+              "name": "BEL SNCF Belges",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#064E2A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_02",
+              "name": "BHB Berlin-Hamburger Bahn",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#123366",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 40,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_03",
+              "name": "BJV Bergslagernas Järnvägar",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#BFAF31",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_04",
+              "name": "CHN Caminos de Hierro del Norte de Espana",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#808000",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_05",
+              "name": "DSJ Det Sjaellandske Jernbaeselskab",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#A0A0A0",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_06",
+              "name": "GSWR Great Southern and Western Railway",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#1AC5D9",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 40,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_07",
+              "name": "GWR Great Western Railway",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#FF0000",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 40,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_08",
+              "name": "KBS Königlich Bayerische Staatseisenbahnen",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#15CDE1",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 40,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_09",
+              "name": "KSS Königlich Sächsische Staatseisenbahnen",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#1F8A3D",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 40,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_10",
+              "name": "LNWR London and North Western Railway",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#3B2A1A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 40,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_11",
+              "name": "LRZD Libavo-Romenskaya Zheleznaya Doroga",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#7A0B68",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_12",
+              "name": "MAV Magyar Allamvasutak",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#3B2A1A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_13",
+              "name": "MIDI CF du Midi",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#1AC5D9",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_14",
+              "name": "MKV Moskovsko-Kiyevo-Voronezhskaya Zheleznaya Doroga",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#99383A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_15",
+              "name": "MSP Peterburgo-Moskovskaya Zheleznaya Doroga",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#99383A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_16",
+              "name": "MZA Cia de los Ferrocarriles de Madrid a Zaragoza y Alicante",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#E3F058",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_17",
+              "name": "OU CF de l'Ouest",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#E85C3A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_18",
+              "name": "PLM CF Paris a Lyon et a la Mediterranee",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#E85C3A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_19",
+              "name": "POB Preußische Ostbahn",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#808000",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 40,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_20",
+              "name": "RCP Companhia Real dos Caminhos de Ferro Portugueses",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#2A9A4A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_21",
+              "name": "SB Osterreichische Südbahn",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#E85C3A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_22",
+              "name": "SFAI Societa per le Ferrovie dell'Alta Italia",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#8B5A2F",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_23",
+              "name": "SFR Societa per la strade ferrate romane",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#2A9A4A",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            },
+            {
+              "id": "major_24",
+              "name": "WW Droga Zelazna Warszawsko-Wiedenska",
+              "balance": 0,
+              "ownedByEntityId": null,
+              "type": "Major",
+              "mode": "Regional",
+              "color": "#1AC5D9",
+              "oe_run": false,
+              "active": true,
+              "tokens": [
+                {
+                  "id": "token_1",
+                  "value": 10,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_2",
+                  "value": 20,
+                  "onboard": false,
+                  "major": false
+                },
+                {
+                  "id": "token_3",
+                  "value": 40,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_4",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_5",
+                  "value": 60,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_6",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_7",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                },
+                {
+                  "id": "token_8",
+                  "value": 80,
+                  "onboard": false,
+                  "major": true
+                }
+              ],
+              "history": [
+                {
+                  "id": "no",
+                  "balance": 0
+                }
+              ],
+              "lastRevenue": 0
+            }
+          ],
+          "trains": [
+            {
+              "id": "train_2_1",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_2",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_3",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_4",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_5",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_6",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_7",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_8",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_9",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_10",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_11",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_12",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_13",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_14",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_15",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_16",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_17",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_18",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_19",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_20",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_21",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_22",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_23",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_24",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_25",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_26",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_27",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_28",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_29",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_2_30",
+              "name": "Level 2",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "local",
+                  "name": "2+2",
+                  "price": 100
+                }
+              ],
+              "sideused": "local",
+              "rusted": false
+            },
+            {
+              "id": "train_3_1",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_2",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_3",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_4",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_5",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_6",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_7",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_8",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_9",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_10",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_11",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_12",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_13",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_14",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_15",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_16",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_17",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_18",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_19",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_3_20",
+              "name": "Level 3",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "3",
+                  "price": 200
+                },
+                {
+                  "id": "local",
+                  "name": "3+3",
+                  "price": 225
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_1",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_2",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_3",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_4",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_5",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_6",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_7",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_8",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_9",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_4_10",
+              "name": "Level 4",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4",
+                  "price": 300
+                },
+                {
+                  "id": "local",
+                  "name": "4+4",
+                  "price": 350
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_p_1",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_p_2",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_p_3",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_p_4",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_p_5",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_p_6",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_p_7",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_p_8",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_p_9",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_p_10",
+              "name": "Pullman",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "pullman",
+                  "name": "Pullman Car",
+                  "price": 150
+                }
+              ],
+              "sideused": "pullman",
+              "rusted": false
+            },
+            {
+              "id": "train_5_1",
+              "name": "Level 5",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5",
+                  "price": 400
+                },
+                {
+                  "id": "local",
+                  "name": "5+5",
+                  "price": 475
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_5_2",
+              "name": "Level 5",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5",
+                  "price": 400
+                },
+                {
+                  "id": "local",
+                  "name": "5+5",
+                  "price": 475
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_5_3",
+              "name": "Level 5",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5",
+                  "price": 400
+                },
+                {
+                  "id": "local",
+                  "name": "5+5",
+                  "price": 475
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_5_4",
+              "name": "Level 5",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5",
+                  "price": 400
+                },
+                {
+                  "id": "local",
+                  "name": "5+5",
+                  "price": 475
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_5_5",
+              "name": "Level 5",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5",
+                  "price": 400
+                },
+                {
+                  "id": "local",
+                  "name": "5+5",
+                  "price": 475
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_5_6",
+              "name": "Level 5",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5",
+                  "price": 400
+                },
+                {
+                  "id": "local",
+                  "name": "5+5",
+                  "price": 475
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_5_7",
+              "name": "Level 5",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5",
+                  "price": 400
+                },
+                {
+                  "id": "local",
+                  "name": "5+5",
+                  "price": 475
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_5_8",
+              "name": "Level 5",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5",
+                  "price": 400
+                },
+                {
+                  "id": "local",
+                  "name": "5+5",
+                  "price": 475
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_6_1",
+              "name": "Level 6",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "6",
+                  "price": 525
+                },
+                {
+                  "id": "local",
+                  "name": "6+6",
+                  "price": 600
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_6_2",
+              "name": "Level 6",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "6",
+                  "price": 525
+                },
+                {
+                  "id": "local",
+                  "name": "6+6",
+                  "price": 600
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_6_3",
+              "name": "Level 6",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "6",
+                  "price": 525
+                },
+                {
+                  "id": "local",
+                  "name": "6+6",
+                  "price": 600
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_6_4",
+              "name": "Level 6",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "6",
+                  "price": 525
+                },
+                {
+                  "id": "local",
+                  "name": "6+6",
+                  "price": 600
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_6_5",
+              "name": "Level 6",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "6",
+                  "price": 525
+                },
+                {
+                  "id": "local",
+                  "name": "6+6",
+                  "price": 600
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_6_6",
+              "name": "Level 6",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "6",
+                  "price": 525
+                },
+                {
+                  "id": "local",
+                  "name": "6+6",
+                  "price": 600
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_1",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_2",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_3",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_4",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_5",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_6",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_7",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_8",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_9",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_10",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_11",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_12",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_13",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_7_14",
+              "name": "Level 7",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "4D",
+                  "price": 850
+                },
+                {
+                  "id": "local",
+                  "name": "7+7",
+                  "price": 750
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_8_1",
+              "name": "Level 8",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5D",
+                  "price": 1000
+                },
+                {
+                  "id": "local",
+                  "name": "8+8",
+                  "price": 900
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_8_2",
+              "name": "Level 8",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5D",
+                  "price": 1000
+                },
+                {
+                  "id": "local",
+                  "name": "8+8",
+                  "price": 900
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_8_3",
+              "name": "Level 8",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5D",
+                  "price": 1000
+                },
+                {
+                  "id": "local",
+                  "name": "8+8",
+                  "price": 900
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_8_4",
+              "name": "Level 8",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5D",
+                  "price": 1000
+                },
+                {
+                  "id": "local",
+                  "name": "8+8",
+                  "price": 900
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_8_5",
+              "name": "Level 8",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5D",
+                  "price": 1000
+                },
+                {
+                  "id": "local",
+                  "name": "8+8",
+                  "price": 900
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_8_6",
+              "name": "Level 8",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5D",
+                  "price": 1000
+                },
+                {
+                  "id": "local",
+                  "name": "8+8",
+                  "price": 900
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_8_7",
+              "name": "Level 8",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5D",
+                  "price": 1000
+                },
+                {
+                  "id": "local",
+                  "name": "8+8",
+                  "price": 900
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            },
+            {
+              "id": "train_8_8",
+              "name": "Level 8",
+              "ownerEntityId": "bank_main",
+              "sides": [
+                {
+                  "id": "express",
+                  "name": "5D",
+                  "price": 1000
+                },
+                {
+                  "id": "local",
+                  "name": "8+8",
+                  "price": 900
+                }
+              ],
+              "sideused": "both",
+              "rusted": false
+            }
+          ],
+          "shares": [
+            {
+              "id": "minor_A_share",
+              "name": "A Certificate",
+              "ownerEntityId": "Minor_A",
+              "percentage": 100,
+              "originCompanyId": "Minor_A"
+            },
+            {
+              "id": "minor_B_share",
+              "name": "B Certificate",
+              "ownerEntityId": "Minor_B",
+              "percentage": 100,
+              "originCompanyId": "Minor_B"
+            },
+            {
+              "id": "minor_C_share",
+              "name": "C Certificate",
+              "ownerEntityId": "Minor_C",
+              "percentage": 100,
+              "originCompanyId": "Minor_C"
+            },
+            {
+              "id": "minor_D_share",
+              "name": "D Certificate",
+              "ownerEntityId": "Minor_D",
+              "percentage": 100,
+              "originCompanyId": "Minor_D"
+            },
+            {
+              "id": "minor_E_share",
+              "name": "E Certificate",
+              "ownerEntityId": "Minor_E",
+              "percentage": 100,
+              "originCompanyId": "Minor_E"
+            },
+            {
+              "id": "minor_F_share",
+              "name": "F Certificate",
+              "ownerEntityId": "Minor_F",
+              "percentage": 100,
+              "originCompanyId": "Minor_F"
+            },
+            {
+              "id": "minor_G_share",
+              "name": "G Certificate",
+              "ownerEntityId": "Minor_G",
+              "percentage": 100,
+              "originCompanyId": "Minor_G"
+            },
+            {
+              "id": "minor_H_share",
+              "name": "H Certificate",
+              "ownerEntityId": "Minor_H",
+              "percentage": 100,
+              "originCompanyId": "Minor_H"
+            },
+            {
+              "id": "minor_J_share",
+              "name": "J Certificate",
+              "ownerEntityId": "Minor_J",
+              "percentage": 100,
+              "originCompanyId": "Minor_J"
+            },
+            {
+              "id": "minor_K_share",
+              "name": "K Certificate",
+              "ownerEntityId": "Minor_K",
+              "percentage": 100,
+              "originCompanyId": "Minor_K"
+            },
+            {
+              "id": "minor_L_share",
+              "name": "L Certificate",
+              "ownerEntityId": "Minor_L",
+              "percentage": 100,
+              "originCompanyId": "Minor_L"
+            },
+            {
+              "id": "minor_M_share",
+              "name": "M Certificate",
+              "ownerEntityId": "Minor_M",
+              "percentage": 100,
+              "originCompanyId": "Minor_M"
+            },
+            {
+              "id": "private_1_share",
+              "name": "Ponts et Chaussées",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_1"
+            },
+            {
+              "id": "private_2_share",
+              "name": "Robert Stephenson and Company",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_2"
+            },
+            {
+              "id": "private_3_share",
+              "name": "Wien Südbahnhof",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_3"
+            },
+            {
+              "id": "private_4_share",
+              "name": "Barclay, Bevan, Barclay & Tritton",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_4"
+            },
+            {
+              "id": "private_5_share",
+              "name": "Star Harbor Trading Co.",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_5"
+            },
+            {
+              "id": "private_6_share",
+              "name": "Central Circle Transport Co.",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_6"
+            },
+            {
+              "id": "private_7_share",
+              "name": "White Cliffs Ferry",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_7"
+            },
+            {
+              "id": "private_8_share",
+              "name": "Hochberg Mining & Lumber",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_8"
+            },
+            {
+              "id": "private_9_share",
+              "name": "Brandt & Brandau, Engineers",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_9"
+            },
+            {
+              "id": "private_10_share",
+              "name": "Swift Metropolitan Line",
+              "ownerEntityId": "bank_main",
+              "percentage": 100,
+              "originCompanyId": "Private_10"
+            },
+            {
+              "id": "major_01_share_01",
+              "name": "BEL Share 1 50/20%",
+              "ownerEntityId": "major_01",
+              "percentage": 20,
+              "originCompanyId": "major_01",
+              "mode": "regional"
+            },
+            {
+              "id": "major_01_share_02",
+              "name": "BEL Share 2 25/10%",
+              "ownerEntityId": "major_01",
+              "percentage": 10,
+              "originCompanyId": "major_01",
+              "mode": "regional"
+            },
+            {
+              "id": "major_01_share_03",
+              "name": "BEL Share 3 25/10%",
+              "ownerEntityId": "major_01",
+              "percentage": 10,
+              "originCompanyId": "major_01",
+              "mode": "regional"
+            },
+            {
+              "id": "major_01_share_04",
+              "name": "BEL Share 4 10%",
+              "ownerEntityId": "major_01",
+              "percentage": 10,
+              "originCompanyId": "major_01",
+              "mode": "major"
+            },
+            {
+              "id": "major_01_share_05",
+              "name": "BEL Share 5 10%",
+              "ownerEntityId": "major_01",
+              "percentage": 10,
+              "originCompanyId": "major_01",
+              "mode": "major"
+            },
+            {
+              "id": "major_01_share_06",
+              "name": "BEL Share 6 10%",
+              "ownerEntityId": "major_01",
+              "percentage": 10,
+              "originCompanyId": "major_01",
+              "mode": "major"
+            },
+            {
+              "id": "major_01_share_07",
+              "name": "BEL Share 7 10%",
+              "ownerEntityId": "major_01",
+              "percentage": 10,
+              "originCompanyId": "major_01",
+              "mode": "major"
+            },
+            {
+              "id": "major_01_share_08",
+              "name": "BEL Share 8 10%",
+              "ownerEntityId": "major_01",
+              "percentage": 10,
+              "originCompanyId": "major_01",
+              "mode": "major"
+            },
+            {
+              "id": "major_01_share_09",
+              "name": "BEL Share 9 10%",
+              "ownerEntityId": "major_01",
+              "percentage": 10,
+              "originCompanyId": "major_01",
+              "mode": "major"
+            },
+            {
+              "id": "major_02_share_01",
+              "name": "BHB Share 1 50/20%",
+              "ownerEntityId": "major_02",
+              "percentage": 20,
+              "originCompanyId": "major_02",
+              "mode": "regional"
+            },
+            {
+              "id": "major_02_share_02",
+              "name": "BHB Share 2 25/10%",
+              "ownerEntityId": "major_02",
+              "percentage": 10,
+              "originCompanyId": "major_02",
+              "mode": "regional"
+            },
+            {
+              "id": "major_02_share_03",
+              "name": "BHB Share 3 25/10%",
+              "ownerEntityId": "major_02",
+              "percentage": 10,
+              "originCompanyId": "major_02",
+              "mode": "regional"
+            },
+            {
+              "id": "major_02_share_04",
+              "name": "BHB Share 4 10%",
+              "ownerEntityId": "major_02",
+              "percentage": 10,
+              "originCompanyId": "major_02",
+              "mode": "major"
+            },
+            {
+              "id": "major_02_share_05",
+              "name": "BHB Share 5 10%",
+              "ownerEntityId": "major_02",
+              "percentage": 10,
+              "originCompanyId": "major_02",
+              "mode": "major"
+            },
+            {
+              "id": "major_02_share_06",
+              "name": "BHB Share 6 10%",
+              "ownerEntityId": "major_02",
+              "percentage": 10,
+              "originCompanyId": "major_02",
+              "mode": "major"
+            },
+            {
+              "id": "major_02_share_07",
+              "name": "BHB Share 7 10%",
+              "ownerEntityId": "major_02",
+              "percentage": 10,
+              "originCompanyId": "major_02",
+              "mode": "major"
+            },
+            {
+              "id": "major_02_share_08",
+              "name": "BHB Share 8 10%",
+              "ownerEntityId": "major_02",
+              "percentage": 10,
+              "originCompanyId": "major_02",
+              "mode": "major"
+            },
+            {
+              "id": "major_02_share_09",
+              "name": "BHB Share 9 10%",
+              "ownerEntityId": "major_02",
+              "percentage": 10,
+              "originCompanyId": "major_02",
+              "mode": "major"
+            },
+            {
+              "id": "major_03_share_01",
+              "name": "BJV Share 1 50/20%",
+              "ownerEntityId": "major_03",
+              "percentage": 20,
+              "originCompanyId": "major_03",
+              "mode": "regional"
+            },
+            {
+              "id": "major_03_share_02",
+              "name": "BJV Share 2 25/10%",
+              "ownerEntityId": "major_03",
+              "percentage": 10,
+              "originCompanyId": "major_03",
+              "mode": "regional"
+            },
+            {
+              "id": "major_03_share_03",
+              "name": "BJV Share 3 25/10%",
+              "ownerEntityId": "major_03",
+              "percentage": 10,
+              "originCompanyId": "major_03",
+              "mode": "regional"
+            },
+            {
+              "id": "major_03_share_04",
+              "name": "BJV Share 4 10%",
+              "ownerEntityId": "major_03",
+              "percentage": 10,
+              "originCompanyId": "major_03",
+              "mode": "major"
+            },
+            {
+              "id": "major_03_share_05",
+              "name": "BJV Share 5 10%",
+              "ownerEntityId": "major_03",
+              "percentage": 10,
+              "originCompanyId": "major_03",
+              "mode": "major"
+            },
+            {
+              "id": "major_03_share_06",
+              "name": "BJV Share 6 10%",
+              "ownerEntityId": "major_03",
+              "percentage": 10,
+              "originCompanyId": "major_03",
+              "mode": "major"
+            },
+            {
+              "id": "major_03_share_07",
+              "name": "BJV Share 7 10%",
+              "ownerEntityId": "major_03",
+              "percentage": 10,
+              "originCompanyId": "major_03",
+              "mode": "major"
+            },
+            {
+              "id": "major_03_share_08",
+              "name": "BJV Share 8 10%",
+              "ownerEntityId": "major_03",
+              "percentage": 10,
+              "originCompanyId": "major_03",
+              "mode": "major"
+            },
+            {
+              "id": "major_03_share_09",
+              "name": "BJV Share 9 10%",
+              "ownerEntityId": "major_03",
+              "percentage": 10,
+              "originCompanyId": "major_03",
+              "mode": "major"
+            },
+            {
+              "id": "major_04_share_01",
+              "name": "CHN Share 1 50/20%",
+              "ownerEntityId": "major_04",
+              "percentage": 20,
+              "originCompanyId": "major_04",
+              "mode": "regional"
+            },
+            {
+              "id": "major_04_share_02",
+              "name": "CHN Share 2 25/10%",
+              "ownerEntityId": "major_04",
+              "percentage": 10,
+              "originCompanyId": "major_04",
+              "mode": "regional"
+            },
+            {
+              "id": "major_04_share_03",
+              "name": "CHN Share 3 25/10%",
+              "ownerEntityId": "major_04",
+              "percentage": 10,
+              "originCompanyId": "major_04",
+              "mode": "regional"
+            },
+            {
+              "id": "major_04_share_04",
+              "name": "CHN Share 4 10%",
+              "ownerEntityId": "major_04",
+              "percentage": 10,
+              "originCompanyId": "major_04",
+              "mode": "major"
+            },
+            {
+              "id": "major_04_share_05",
+              "name": "CHN Share 5 10%",
+              "ownerEntityId": "major_04",
+              "percentage": 10,
+              "originCompanyId": "major_04",
+              "mode": "major"
+            },
+            {
+              "id": "major_04_share_06",
+              "name": "CHN Share 6 10%",
+              "ownerEntityId": "major_04",
+              "percentage": 10,
+              "originCompanyId": "major_04",
+              "mode": "major"
+            },
+            {
+              "id": "major_04_share_07",
+              "name": "CHN Share 7 10%",
+              "ownerEntityId": "major_04",
+              "percentage": 10,
+              "originCompanyId": "major_04",
+              "mode": "major"
+            },
+            {
+              "id": "major_04_share_08",
+              "name": "CHN Share 8 10%",
+              "ownerEntityId": "major_04",
+              "percentage": 10,
+              "originCompanyId": "major_04",
+              "mode": "major"
+            },
+            {
+              "id": "major_04_share_09",
+              "name": "CHN Share 9 10%",
+              "ownerEntityId": "major_04",
+              "percentage": 10,
+              "originCompanyId": "major_04",
+              "mode": "major"
+            },
+            {
+              "id": "major_05_share_01",
+              "name": "DSJ Share 1 50/20%",
+              "ownerEntityId": "major_05",
+              "percentage": 20,
+              "originCompanyId": "major_05",
+              "mode": "regional"
+            },
+            {
+              "id": "major_05_share_02",
+              "name": "DSJ Share 2 25/10%",
+              "ownerEntityId": "major_05",
+              "percentage": 10,
+              "originCompanyId": "major_05",
+              "mode": "regional"
+            },
+            {
+              "id": "major_05_share_03",
+              "name": "DSJ Share 3 25/10%",
+              "ownerEntityId": "major_05",
+              "percentage": 10,
+              "originCompanyId": "major_05",
+              "mode": "regional"
+            },
+            {
+              "id": "major_05_share_04",
+              "name": "DSJ Share 4 10%",
+              "ownerEntityId": "major_05",
+              "percentage": 10,
+              "originCompanyId": "major_05",
+              "mode": "major"
+            },
+            {
+              "id": "major_05_share_05",
+              "name": "DSJ Share 5 10%",
+              "ownerEntityId": "major_05",
+              "percentage": 10,
+              "originCompanyId": "major_05",
+              "mode": "major"
+            },
+            {
+              "id": "major_05_share_06",
+              "name": "DSJ Share 6 10%",
+              "ownerEntityId": "major_05",
+              "percentage": 10,
+              "originCompanyId": "major_05",
+              "mode": "major"
+            },
+            {
+              "id": "major_05_share_07",
+              "name": "DSJ Share 7 10%",
+              "ownerEntityId": "major_05",
+              "percentage": 10,
+              "originCompanyId": "major_05",
+              "mode": "major"
+            },
+            {
+              "id": "major_05_share_08",
+              "name": "DSJ Share 8 10%",
+              "ownerEntityId": "major_05",
+              "percentage": 10,
+              "originCompanyId": "major_05",
+              "mode": "major"
+            },
+            {
+              "id": "major_05_share_09",
+              "name": "DSJ Share 9 10%",
+              "ownerEntityId": "major_05",
+              "percentage": 10,
+              "originCompanyId": "major_05",
+              "mode": "major"
+            },
+            {
+              "id": "major_06_share_01",
+              "name": "GSWR Share 1 50/20%",
+              "ownerEntityId": "major_06",
+              "percentage": 20,
+              "originCompanyId": "major_06",
+              "mode": "regional"
+            },
+            {
+              "id": "major_06_share_02",
+              "name": "GSWR Share 2 25/10%",
+              "ownerEntityId": "major_06",
+              "percentage": 10,
+              "originCompanyId": "major_06",
+              "mode": "regional"
+            },
+            {
+              "id": "major_06_share_03",
+              "name": "GSWR Share 3 25/10%",
+              "ownerEntityId": "major_06",
+              "percentage": 10,
+              "originCompanyId": "major_06",
+              "mode": "regional"
+            },
+            {
+              "id": "major_06_share_04",
+              "name": "GSWR Share 4 10%",
+              "ownerEntityId": "major_06",
+              "percentage": 10,
+              "originCompanyId": "major_06",
+              "mode": "major"
+            },
+            {
+              "id": "major_06_share_05",
+              "name": "GSWR Share 5 10%",
+              "ownerEntityId": "major_06",
+              "percentage": 10,
+              "originCompanyId": "major_06",
+              "mode": "major"
+            },
+            {
+              "id": "major_06_share_06",
+              "name": "GSWR Share 6 10%",
+              "ownerEntityId": "major_06",
+              "percentage": 10,
+              "originCompanyId": "major_06",
+              "mode": "major"
+            },
+            {
+              "id": "major_06_share_07",
+              "name": "GSWR Share 7 10%",
+              "ownerEntityId": "major_06",
+              "percentage": 10,
+              "originCompanyId": "major_06",
+              "mode": "major"
+            },
+            {
+              "id": "major_06_share_08",
+              "name": "GSWR Share 8 10%",
+              "ownerEntityId": "major_06",
+              "percentage": 10,
+              "originCompanyId": "major_06",
+              "mode": "major"
+            },
+            {
+              "id": "major_06_share_09",
+              "name": "GSWR Share 9 10%",
+              "ownerEntityId": "major_06",
+              "percentage": 10,
+              "originCompanyId": "major_06",
+              "mode": "major"
+            },
+            {
+              "id": "major_07_share_01",
+              "name": "GWR Share 1 50/20%",
+              "ownerEntityId": "major_07",
+              "percentage": 20,
+              "originCompanyId": "major_07",
+              "mode": "regional"
+            },
+            {
+              "id": "major_07_share_02",
+              "name": "GWR Share 2 25/10%",
+              "ownerEntityId": "major_07",
+              "percentage": 10,
+              "originCompanyId": "major_07",
+              "mode": "regional"
+            },
+            {
+              "id": "major_07_share_03",
+              "name": "GWR Share 3 25/10%",
+              "ownerEntityId": "major_07",
+              "percentage": 10,
+              "originCompanyId": "major_07",
+              "mode": "regional"
+            },
+            {
+              "id": "major_07_share_04",
+              "name": "GWR Share 4 10%",
+              "ownerEntityId": "major_07",
+              "percentage": 10,
+              "originCompanyId": "major_07",
+              "mode": "major"
+            },
+            {
+              "id": "major_07_share_05",
+              "name": "GWR Share 5 10%",
+              "ownerEntityId": "major_07",
+              "percentage": 10,
+              "originCompanyId": "major_07",
+              "mode": "major"
+            },
+            {
+              "id": "major_07_share_06",
+              "name": "GWR Share 6 10%",
+              "ownerEntityId": "major_07",
+              "percentage": 10,
+              "originCompanyId": "major_07",
+              "mode": "major"
+            },
+            {
+              "id": "major_07_share_07",
+              "name": "GWR Share 7 10%",
+              "ownerEntityId": "major_07",
+              "percentage": 10,
+              "originCompanyId": "major_07",
+              "mode": "major"
+            },
+            {
+              "id": "major_07_share_08",
+              "name": "GWR Share 8 10%",
+              "ownerEntityId": "major_07",
+              "percentage": 10,
+              "originCompanyId": "major_07",
+              "mode": "major"
+            },
+            {
+              "id": "major_07_share_09",
+              "name": "GWR Share 9 10%",
+              "ownerEntityId": "major_07",
+              "percentage": 10,
+              "originCompanyId": "major_07",
+              "mode": "major"
+            },
+            {
+              "id": "major_08_share_01",
+              "name": "KBS Share 1 50/20%",
+              "ownerEntityId": "major_08",
+              "percentage": 20,
+              "originCompanyId": "major_08",
+              "mode": "regional"
+            },
+            {
+              "id": "major_08_share_02",
+              "name": "KBS Share 2 25/10%",
+              "ownerEntityId": "major_08",
+              "percentage": 10,
+              "originCompanyId": "major_08",
+              "mode": "regional"
+            },
+            {
+              "id": "major_08_share_03",
+              "name": "KBS Share 3 25/10%",
+              "ownerEntityId": "major_08",
+              "percentage": 10,
+              "originCompanyId": "major_08",
+              "mode": "regional"
+            },
+            {
+              "id": "major_08_share_04",
+              "name": "KBS Share 4 10%",
+              "ownerEntityId": "major_08",
+              "percentage": 10,
+              "originCompanyId": "major_08",
+              "mode": "major"
+            },
+            {
+              "id": "major_08_share_05",
+              "name": "KBS Share 5 10%",
+              "ownerEntityId": "major_08",
+              "percentage": 10,
+              "originCompanyId": "major_08",
+              "mode": "major"
+            },
+            {
+              "id": "major_08_share_06",
+              "name": "KBS Share 6 10%",
+              "ownerEntityId": "major_08",
+              "percentage": 10,
+              "originCompanyId": "major_08",
+              "mode": "major"
+            },
+            {
+              "id": "major_08_share_07",
+              "name": "KBS Share 7 10%",
+              "ownerEntityId": "major_08",
+              "percentage": 10,
+              "originCompanyId": "major_08",
+              "mode": "major"
+            },
+            {
+              "id": "major_08_share_08",
+              "name": "KBS Share 8 10%",
+              "ownerEntityId": "major_08",
+              "percentage": 10,
+              "originCompanyId": "major_08",
+              "mode": "major"
+            },
+            {
+              "id": "major_08_share_09",
+              "name": "KBS Share 9 10%",
+              "ownerEntityId": "major_08",
+              "percentage": 10,
+              "originCompanyId": "major_08",
+              "mode": "major"
+            },
+            {
+              "id": "major_09_share_01",
+              "name": "KSS Share 1 50/20%",
+              "ownerEntityId": "major_09",
+              "percentage": 20,
+              "originCompanyId": "major_09",
+              "mode": "regional"
+            },
+            {
+              "id": "major_09_share_02",
+              "name": "KSS Share 2 25/10%",
+              "ownerEntityId": "major_09",
+              "percentage": 10,
+              "originCompanyId": "major_09",
+              "mode": "regional"
+            },
+            {
+              "id": "major_09_share_03",
+              "name": "KSS Share 3 25/10%",
+              "ownerEntityId": "major_09",
+              "percentage": 10,
+              "originCompanyId": "major_09",
+              "mode": "regional"
+            },
+            {
+              "id": "major_09_share_04",
+              "name": "KSS Share 4 10%",
+              "ownerEntityId": "major_09",
+              "percentage": 10,
+              "originCompanyId": "major_09",
+              "mode": "major"
+            },
+            {
+              "id": "major_09_share_05",
+              "name": "KSS Share 5 10%",
+              "ownerEntityId": "major_09",
+              "percentage": 10,
+              "originCompanyId": "major_09",
+              "mode": "major"
+            },
+            {
+              "id": "major_09_share_06",
+              "name": "KSS Share 6 10%",
+              "ownerEntityId": "major_09",
+              "percentage": 10,
+              "originCompanyId": "major_09",
+              "mode": "major"
+            },
+            {
+              "id": "major_09_share_07",
+              "name": "KSS Share 7 10%",
+              "ownerEntityId": "major_09",
+              "percentage": 10,
+              "originCompanyId": "major_09",
+              "mode": "major"
+            },
+            {
+              "id": "major_09_share_08",
+              "name": "KSS Share 8 10%",
+              "ownerEntityId": "major_09",
+              "percentage": 10,
+              "originCompanyId": "major_09",
+              "mode": "major"
+            },
+            {
+              "id": "major_09_share_09",
+              "name": "KSS Share 9 10%",
+              "ownerEntityId": "major_09",
+              "percentage": 10,
+              "originCompanyId": "major_09",
+              "mode": "major"
+            },
+            {
+              "id": "major_10_share_01",
+              "name": "LNWR Share 1 50/20%",
+              "ownerEntityId": "major_10",
+              "percentage": 20,
+              "originCompanyId": "major_10",
+              "mode": "regional"
+            },
+            {
+              "id": "major_10_share_02",
+              "name": "LNWR Share 2 25/10%",
+              "ownerEntityId": "major_10",
+              "percentage": 10,
+              "originCompanyId": "major_10",
+              "mode": "regional"
+            },
+            {
+              "id": "major_10_share_03",
+              "name": "LNWR Share 3 25/10%",
+              "ownerEntityId": "major_10",
+              "percentage": 10,
+              "originCompanyId": "major_10",
+              "mode": "regional"
+            },
+            {
+              "id": "major_10_share_04",
+              "name": "LNWR Share 4 10%",
+              "ownerEntityId": "major_10",
+              "percentage": 10,
+              "originCompanyId": "major_10",
+              "mode": "major"
+            },
+            {
+              "id": "major_10_share_05",
+              "name": "LNWR Share 5 10%",
+              "ownerEntityId": "major_10",
+              "percentage": 10,
+              "originCompanyId": "major_10",
+              "mode": "major"
+            },
+            {
+              "id": "major_10_share_06",
+              "name": "LNWR Share 6 10%",
+              "ownerEntityId": "major_10",
+              "percentage": 10,
+              "originCompanyId": "major_10",
+              "mode": "major"
+            },
+            {
+              "id": "major_10_share_07",
+              "name": "LNWR Share 7 10%",
+              "ownerEntityId": "major_10",
+              "percentage": 10,
+              "originCompanyId": "major_10",
+              "mode": "major"
+            },
+            {
+              "id": "major_10_share_08",
+              "name": "LNWR Share 8 10%",
+              "ownerEntityId": "major_10",
+              "percentage": 10,
+              "originCompanyId": "major_10",
+              "mode": "major"
+            },
+            {
+              "id": "major_10_share_09",
+              "name": "LNWR Share 9 10%",
+              "ownerEntityId": "major_10",
+              "percentage": 10,
+              "originCompanyId": "major_10",
+              "mode": "major"
+            },
+            {
+              "id": "major_11_share_01",
+              "name": "LRZD Share 1 50/20%",
+              "ownerEntityId": "major_11",
+              "percentage": 20,
+              "originCompanyId": "major_11",
+              "mode": "regional"
+            },
+            {
+              "id": "major_11_share_02",
+              "name": "LRZD Share 2 25/10%",
+              "ownerEntityId": "major_11",
+              "percentage": 10,
+              "originCompanyId": "major_11",
+              "mode": "regional"
+            },
+            {
+              "id": "major_11_share_03",
+              "name": "LRZD Share 3 25/10%",
+              "ownerEntityId": "major_11",
+              "percentage": 10,
+              "originCompanyId": "major_11",
+              "mode": "regional"
+            },
+            {
+              "id": "major_11_share_04",
+              "name": "LRZD Share 4 10%",
+              "ownerEntityId": "major_11",
+              "percentage": 10,
+              "originCompanyId": "major_11",
+              "mode": "major"
+            },
+            {
+              "id": "major_11_share_05",
+              "name": "LRZD Share 5 10%",
+              "ownerEntityId": "major_11",
+              "percentage": 10,
+              "originCompanyId": "major_11",
+              "mode": "major"
+            },
+            {
+              "id": "major_11_share_06",
+              "name": "LRZD Share 6 10%",
+              "ownerEntityId": "major_11",
+              "percentage": 10,
+              "originCompanyId": "major_11",
+              "mode": "major"
+            },
+            {
+              "id": "major_11_share_07",
+              "name": "LRZD Share 7 10%",
+              "ownerEntityId": "major_11",
+              "percentage": 10,
+              "originCompanyId": "major_11",
+              "mode": "major"
+            },
+            {
+              "id": "major_11_share_08",
+              "name": "LRZD Share 8 10%",
+              "ownerEntityId": "major_11",
+              "percentage": 10,
+              "originCompanyId": "major_11",
+              "mode": "major"
+            },
+            {
+              "id": "major_11_share_09",
+              "name": "LRZD Share 9 10%",
+              "ownerEntityId": "major_11",
+              "percentage": 10,
+              "originCompanyId": "major_11",
+              "mode": "major"
+            },
+            {
+              "id": "major_12_share_01",
+              "name": "MAV Share 1 50/20%",
+              "ownerEntityId": "major_12",
+              "percentage": 20,
+              "originCompanyId": "major_12",
+              "mode": "regional"
+            },
+            {
+              "id": "major_12_share_02",
+              "name": "MAV Share 2 25/10%",
+              "ownerEntityId": "major_12",
+              "percentage": 10,
+              "originCompanyId": "major_12",
+              "mode": "regional"
+            },
+            {
+              "id": "major_12_share_03",
+              "name": "MAV Share 3 25/10%",
+              "ownerEntityId": "major_12",
+              "percentage": 10,
+              "originCompanyId": "major_12",
+              "mode": "regional"
+            },
+            {
+              "id": "major_12_share_04",
+              "name": "MAV Share 4 10%",
+              "ownerEntityId": "major_12",
+              "percentage": 10,
+              "originCompanyId": "major_12",
+              "mode": "major"
+            },
+            {
+              "id": "major_12_share_05",
+              "name": "MAV Share 5 10%",
+              "ownerEntityId": "major_12",
+              "percentage": 10,
+              "originCompanyId": "major_12",
+              "mode": "major"
+            },
+            {
+              "id": "major_12_share_06",
+              "name": "MAV Share 6 10%",
+              "ownerEntityId": "major_12",
+              "percentage": 10,
+              "originCompanyId": "major_12",
+              "mode": "major"
+            },
+            {
+              "id": "major_12_share_07",
+              "name": "MAV Share 7 10%",
+              "ownerEntityId": "major_12",
+              "percentage": 10,
+              "originCompanyId": "major_12",
+              "mode": "major"
+            },
+            {
+              "id": "major_12_share_08",
+              "name": "MAV Share 8 10%",
+              "ownerEntityId": "major_12",
+              "percentage": 10,
+              "originCompanyId": "major_12",
+              "mode": "major"
+            },
+            {
+              "id": "major_12_share_09",
+              "name": "MAV Share 9 10%",
+              "ownerEntityId": "major_12",
+              "percentage": 10,
+              "originCompanyId": "major_12",
+              "mode": "major"
+            },
+            {
+              "id": "major_13_share_01",
+              "name": "MIDI Share 1 50/20%",
+              "ownerEntityId": "major_13",
+              "percentage": 20,
+              "originCompanyId": "major_13",
+              "mode": "regional"
+            },
+            {
+              "id": "major_13_share_02",
+              "name": "MIDI Share 2 25/10%",
+              "ownerEntityId": "major_13",
+              "percentage": 10,
+              "originCompanyId": "major_13",
+              "mode": "regional"
+            },
+            {
+              "id": "major_13_share_03",
+              "name": "MIDI Share 3 25/10%",
+              "ownerEntityId": "major_13",
+              "percentage": 10,
+              "originCompanyId": "major_13",
+              "mode": "regional"
+            },
+            {
+              "id": "major_13_share_04",
+              "name": "MIDI Share 4 10%",
+              "ownerEntityId": "major_13",
+              "percentage": 10,
+              "originCompanyId": "major_13",
+              "mode": "major"
+            },
+            {
+              "id": "major_13_share_05",
+              "name": "MIDI Share 5 10%",
+              "ownerEntityId": "major_13",
+              "percentage": 10,
+              "originCompanyId": "major_13",
+              "mode": "major"
+            },
+            {
+              "id": "major_13_share_06",
+              "name": "MIDI Share 6 10%",
+              "ownerEntityId": "major_13",
+              "percentage": 10,
+              "originCompanyId": "major_13",
+              "mode": "major"
+            },
+            {
+              "id": "major_13_share_07",
+              "name": "MIDI Share 7 10%",
+              "ownerEntityId": "major_13",
+              "percentage": 10,
+              "originCompanyId": "major_13",
+              "mode": "major"
+            },
+            {
+              "id": "major_13_share_08",
+              "name": "MIDI Share 8 10%",
+              "ownerEntityId": "major_13",
+              "percentage": 10,
+              "originCompanyId": "major_13",
+              "mode": "major"
+            },
+            {
+              "id": "major_13_share_09",
+              "name": "MIDI Share 9 10%",
+              "ownerEntityId": "major_13",
+              "percentage": 10,
+              "originCompanyId": "major_13",
+              "mode": "major"
+            },
+            {
+              "id": "major_14_share_01",
+              "name": "MKV Share 1 50/20%",
+              "ownerEntityId": "major_14",
+              "percentage": 20,
+              "originCompanyId": "major_14",
+              "mode": "regional"
+            },
+            {
+              "id": "major_14_share_02",
+              "name": "MKV Share 2 25/10%",
+              "ownerEntityId": "major_14",
+              "percentage": 10,
+              "originCompanyId": "major_14",
+              "mode": "regional"
+            },
+            {
+              "id": "major_14_share_03",
+              "name": "MKV Share 3 25/10%",
+              "ownerEntityId": "major_14",
+              "percentage": 10,
+              "originCompanyId": "major_14",
+              "mode": "regional"
+            },
+            {
+              "id": "major_14_share_04",
+              "name": "MKV Share 4 10%",
+              "ownerEntityId": "major_14",
+              "percentage": 10,
+              "originCompanyId": "major_14",
+              "mode": "major"
+            },
+            {
+              "id": "major_14_share_05",
+              "name": "MKV Share 5 10%",
+              "ownerEntityId": "major_14",
+              "percentage": 10,
+              "originCompanyId": "major_14",
+              "mode": "major"
+            },
+            {
+              "id": "major_14_share_06",
+              "name": "MKV Share 6 10%",
+              "ownerEntityId": "major_14",
+              "percentage": 10,
+              "originCompanyId": "major_14",
+              "mode": "major"
+            },
+            {
+              "id": "major_14_share_07",
+              "name": "MKV Share 7 10%",
+              "ownerEntityId": "major_14",
+              "percentage": 10,
+              "originCompanyId": "major_14",
+              "mode": "major"
+            },
+            {
+              "id": "major_14_share_08",
+              "name": "MKV Share 8 10%",
+              "ownerEntityId": "major_14",
+              "percentage": 10,
+              "originCompanyId": "major_14",
+              "mode": "major"
+            },
+            {
+              "id": "major_14_share_09",
+              "name": "MKV Share 9 10%",
+              "ownerEntityId": "major_14",
+              "percentage": 10,
+              "originCompanyId": "major_14",
+              "mode": "major"
+            },
+            {
+              "id": "major_15_share_01",
+              "name": "MSP Share 1 50/20%",
+              "ownerEntityId": "major_15",
+              "percentage": 20,
+              "originCompanyId": "major_15",
+              "mode": "regional"
+            },
+            {
+              "id": "major_15_share_02",
+              "name": "MSP Share 2 25/10%",
+              "ownerEntityId": "major_15",
+              "percentage": 10,
+              "originCompanyId": "major_15",
+              "mode": "regional"
+            },
+            {
+              "id": "major_15_share_03",
+              "name": "MSP Share 3 25/10%",
+              "ownerEntityId": "major_15",
+              "percentage": 10,
+              "originCompanyId": "major_15",
+              "mode": "regional"
+            },
+            {
+              "id": "major_15_share_04",
+              "name": "MSP Share 4 10%",
+              "ownerEntityId": "major_15",
+              "percentage": 10,
+              "originCompanyId": "major_15",
+              "mode": "major"
+            },
+            {
+              "id": "major_15_share_05",
+              "name": "MSP Share 5 10%",
+              "ownerEntityId": "major_15",
+              "percentage": 10,
+              "originCompanyId": "major_15",
+              "mode": "major"
+            },
+            {
+              "id": "major_15_share_06",
+              "name": "MSP Share 6 10%",
+              "ownerEntityId": "major_15",
+              "percentage": 10,
+              "originCompanyId": "major_15",
+              "mode": "major"
+            },
+            {
+              "id": "major_15_share_07",
+              "name": "MSP Share 7 10%",
+              "ownerEntityId": "major_15",
+              "percentage": 10,
+              "originCompanyId": "major_15",
+              "mode": "major"
+            },
+            {
+              "id": "major_15_share_08",
+              "name": "MSP Share 8 10%",
+              "ownerEntityId": "major_15",
+              "percentage": 10,
+              "originCompanyId": "major_15",
+              "mode": "major"
+            },
+            {
+              "id": "major_15_share_09",
+              "name": "MSP Share 9 10%",
+              "ownerEntityId": "major_15",
+              "percentage": 10,
+              "originCompanyId": "major_15",
+              "mode": "major"
+            },
+            {
+              "id": "major_16_share_01",
+              "name": "MZA Share 1 50/20%",
+              "ownerEntityId": "major_16",
+              "percentage": 20,
+              "originCompanyId": "major_16",
+              "mode": "regional"
+            },
+            {
+              "id": "major_16_share_02",
+              "name": "MZA Share 2 25/10%",
+              "ownerEntityId": "major_16",
+              "percentage": 10,
+              "originCompanyId": "major_16",
+              "mode": "regional"
+            },
+            {
+              "id": "major_16_share_03",
+              "name": "MZA Share 3 25/10%",
+              "ownerEntityId": "major_16",
+              "percentage": 10,
+              "originCompanyId": "major_16",
+              "mode": "regional"
+            },
+            {
+              "id": "major_16_share_04",
+              "name": "MZA Share 4 10%",
+              "ownerEntityId": "major_16",
+              "percentage": 10,
+              "originCompanyId": "major_16",
+              "mode": "major"
+            },
+            {
+              "id": "major_16_share_05",
+              "name": "MZA Share 5 10%",
+              "ownerEntityId": "major_16",
+              "percentage": 10,
+              "originCompanyId": "major_16",
+              "mode": "major"
+            },
+            {
+              "id": "major_16_share_06",
+              "name": "MZA Share 6 10%",
+              "ownerEntityId": "major_16",
+              "percentage": 10,
+              "originCompanyId": "major_16",
+              "mode": "major"
+            },
+            {
+              "id": "major_16_share_07",
+              "name": "MZA Share 7 10%",
+              "ownerEntityId": "major_16",
+              "percentage": 10,
+              "originCompanyId": "major_16",
+              "mode": "major"
+            },
+            {
+              "id": "major_16_share_08",
+              "name": "MZA Share 8 10%",
+              "ownerEntityId": "major_16",
+              "percentage": 10,
+              "originCompanyId": "major_16",
+              "mode": "major"
+            },
+            {
+              "id": "major_16_share_09",
+              "name": "MZA Share 9 10%",
+              "ownerEntityId": "major_16",
+              "percentage": 10,
+              "originCompanyId": "major_16",
+              "mode": "major"
+            },
+            {
+              "id": "major_17_share_01",
+              "name": "OU Share 1 50/20%",
+              "ownerEntityId": "major_17",
+              "percentage": 20,
+              "originCompanyId": "major_17",
+              "mode": "regional"
+            },
+            {
+              "id": "major_17_share_02",
+              "name": "OU Share 2 25/10%",
+              "ownerEntityId": "major_17",
+              "percentage": 10,
+              "originCompanyId": "major_17",
+              "mode": "regional"
+            },
+            {
+              "id": "major_17_share_03",
+              "name": "OU Share 3 25/10%",
+              "ownerEntityId": "major_17",
+              "percentage": 10,
+              "originCompanyId": "major_17",
+              "mode": "regional"
+            },
+            {
+              "id": "major_17_share_04",
+              "name": "OU Share 4 10%",
+              "ownerEntityId": "major_17",
+              "percentage": 10,
+              "originCompanyId": "major_17",
+              "mode": "major"
+            },
+            {
+              "id": "major_17_share_05",
+              "name": "OU Share 5 10%",
+              "ownerEntityId": "major_17",
+              "percentage": 10,
+              "originCompanyId": "major_17",
+              "mode": "major"
+            },
+            {
+              "id": "major_17_share_06",
+              "name": "OU Share 6 10%",
+              "ownerEntityId": "major_17",
+              "percentage": 10,
+              "originCompanyId": "major_17",
+              "mode": "major"
+            },
+            {
+              "id": "major_17_share_07",
+              "name": "OU Share 7 10%",
+              "ownerEntityId": "major_17",
+              "percentage": 10,
+              "originCompanyId": "major_17",
+              "mode": "major"
+            },
+            {
+              "id": "major_17_share_08",
+              "name": "OU Share 8 10%",
+              "ownerEntityId": "major_17",
+              "percentage": 10,
+              "originCompanyId": "major_17",
+              "mode": "major"
+            },
+            {
+              "id": "major_17_share_09",
+              "name": "OU Share 9 10%",
+              "ownerEntityId": "major_17",
+              "percentage": 10,
+              "originCompanyId": "major_17",
+              "mode": "major"
+            },
+            {
+              "id": "major_18_share_01",
+              "name": "PLM Share 1 50/20%",
+              "ownerEntityId": "major_18",
+              "percentage": 20,
+              "originCompanyId": "major_18",
+              "mode": "regional"
+            },
+            {
+              "id": "major_18_share_02",
+              "name": "PLM Share 2 25/10%",
+              "ownerEntityId": "major_18",
+              "percentage": 10,
+              "originCompanyId": "major_18",
+              "mode": "regional"
+            },
+            {
+              "id": "major_18_share_03",
+              "name": "PLM Share 3 25/10%",
+              "ownerEntityId": "major_18",
+              "percentage": 10,
+              "originCompanyId": "major_18",
+              "mode": "regional"
+            },
+            {
+              "id": "major_18_share_04",
+              "name": "PLM Share 4 10%",
+              "ownerEntityId": "major_18",
+              "percentage": 10,
+              "originCompanyId": "major_18",
+              "mode": "major"
+            },
+            {
+              "id": "major_18_share_05",
+              "name": "PLM Share 5 10%",
+              "ownerEntityId": "major_18",
+              "percentage": 10,
+              "originCompanyId": "major_18",
+              "mode": "major"
+            },
+            {
+              "id": "major_18_share_06",
+              "name": "PLM Share 6 10%",
+              "ownerEntityId": "major_18",
+              "percentage": 10,
+              "originCompanyId": "major_18",
+              "mode": "major"
+            },
+            {
+              "id": "major_18_share_07",
+              "name": "PLM Share 7 10%",
+              "ownerEntityId": "major_18",
+              "percentage": 10,
+              "originCompanyId": "major_18",
+              "mode": "major"
+            },
+            {
+              "id": "major_18_share_08",
+              "name": "PLM Share 8 10%",
+              "ownerEntityId": "major_18",
+              "percentage": 10,
+              "originCompanyId": "major_18",
+              "mode": "major"
+            },
+            {
+              "id": "major_18_share_09",
+              "name": "PLM Share 9 10%",
+              "ownerEntityId": "major_18",
+              "percentage": 10,
+              "originCompanyId": "major_18",
+              "mode": "major"
+            },
+            {
+              "id": "major_19_share_01",
+              "name": "POB Share 1 50/20%",
+              "ownerEntityId": "major_19",
+              "percentage": 20,
+              "originCompanyId": "major_19",
+              "mode": "regional"
+            },
+            {
+              "id": "major_19_share_02",
+              "name": "POB Share 2 25/10%",
+              "ownerEntityId": "major_19",
+              "percentage": 10,
+              "originCompanyId": "major_19",
+              "mode": "regional"
+            },
+            {
+              "id": "major_19_share_03",
+              "name": "POB Share 3 25/10%",
+              "ownerEntityId": "major_19",
+              "percentage": 10,
+              "originCompanyId": "major_19",
+              "mode": "regional"
+            },
+            {
+              "id": "major_19_share_04",
+              "name": "POB Share 4 10%",
+              "ownerEntityId": "major_19",
+              "percentage": 10,
+              "originCompanyId": "major_19",
+              "mode": "major"
+            },
+            {
+              "id": "major_19_share_05",
+              "name": "POB Share 5 10%",
+              "ownerEntityId": "major_19",
+              "percentage": 10,
+              "originCompanyId": "major_19",
+              "mode": "major"
+            },
+            {
+              "id": "major_19_share_06",
+              "name": "POB Share 6 10%",
+              "ownerEntityId": "major_19",
+              "percentage": 10,
+              "originCompanyId": "major_19",
+              "mode": "major"
+            },
+            {
+              "id": "major_19_share_07",
+              "name": "POB Share 7 10%",
+              "ownerEntityId": "major_19",
+              "percentage": 10,
+              "originCompanyId": "major_19",
+              "mode": "major"
+            },
+            {
+              "id": "major_19_share_08",
+              "name": "POB Share 8 10%",
+              "ownerEntityId": "major_19",
+              "percentage": 10,
+              "originCompanyId": "major_19",
+              "mode": "major"
+            },
+            {
+              "id": "major_19_share_09",
+              "name": "POB Share 9 10%",
+              "ownerEntityId": "major_19",
+              "percentage": 10,
+              "originCompanyId": "major_19",
+              "mode": "major"
+            },
+            {
+              "id": "major_20_share_01",
+              "name": "RCP Share 1 50/20%",
+              "ownerEntityId": "major_20",
+              "percentage": 20,
+              "originCompanyId": "major_20",
+              "mode": "regional"
+            },
+            {
+              "id": "major_20_share_02",
+              "name": "RCP Share 2 25/10%",
+              "ownerEntityId": "major_20",
+              "percentage": 10,
+              "originCompanyId": "major_20",
+              "mode": "regional"
+            },
+            {
+              "id": "major_20_share_03",
+              "name": "RCP Share 3 25/10%",
+              "ownerEntityId": "major_20",
+              "percentage": 10,
+              "originCompanyId": "major_20",
+              "mode": "regional"
+            },
+            {
+              "id": "major_20_share_04",
+              "name": "RCP Share 4 10%",
+              "ownerEntityId": "major_20",
+              "percentage": 10,
+              "originCompanyId": "major_20",
+              "mode": "major"
+            },
+            {
+              "id": "major_20_share_05",
+              "name": "RCP Share 5 10%",
+              "ownerEntityId": "major_20",
+              "percentage": 10,
+              "originCompanyId": "major_20",
+              "mode": "major"
+            },
+            {
+              "id": "major_20_share_06",
+              "name": "RCP Share 6 10%",
+              "ownerEntityId": "major_20",
+              "percentage": 10,
+              "originCompanyId": "major_20",
+              "mode": "major"
+            },
+            {
+              "id": "major_20_share_07",
+              "name": "RCP Share 7 10%",
+              "ownerEntityId": "major_20",
+              "percentage": 10,
+              "originCompanyId": "major_20",
+              "mode": "major"
+            },
+            {
+              "id": "major_20_share_08",
+              "name": "RCP Share 8 10%",
+              "ownerEntityId": "major_20",
+              "percentage": 10,
+              "originCompanyId": "major_20",
+              "mode": "major"
+            },
+            {
+              "id": "major_20_share_09",
+              "name": "RCP Share 9 10%",
+              "ownerEntityId": "major_20",
+              "percentage": 10,
+              "originCompanyId": "major_20",
+              "mode": "major"
+            },
+            {
+              "id": "major_21_share_01",
+              "name": "SB Share 1 50/20%",
+              "ownerEntityId": "major_21",
+              "percentage": 20,
+              "originCompanyId": "major_21",
+              "mode": "regional"
+            },
+            {
+              "id": "major_21_share_02",
+              "name": "SB Share 2 25/10%",
+              "ownerEntityId": "major_21",
+              "percentage": 10,
+              "originCompanyId": "major_21",
+              "mode": "regional"
+            },
+            {
+              "id": "major_21_share_03",
+              "name": "SB Share 3 25/10%",
+              "ownerEntityId": "major_21",
+              "percentage": 10,
+              "originCompanyId": "major_21",
+              "mode": "regional"
+            },
+            {
+              "id": "major_21_share_04",
+              "name": "SB Share 4 10%",
+              "ownerEntityId": "major_21",
+              "percentage": 10,
+              "originCompanyId": "major_21",
+              "mode": "major"
+            },
+            {
+              "id": "major_21_share_05",
+              "name": "SB Share 5 10%",
+              "ownerEntityId": "major_21",
+              "percentage": 10,
+              "originCompanyId": "major_21",
+              "mode": "major"
+            },
+            {
+              "id": "major_21_share_06",
+              "name": "SB Share 6 10%",
+              "ownerEntityId": "major_21",
+              "percentage": 10,
+              "originCompanyId": "major_21",
+              "mode": "major"
+            },
+            {
+              "id": "major_21_share_07",
+              "name": "SB Share 7 10%",
+              "ownerEntityId": "major_21",
+              "percentage": 10,
+              "originCompanyId": "major_21",
+              "mode": "major"
+            },
+            {
+              "id": "major_21_share_08",
+              "name": "SB Share 8 10%",
+              "ownerEntityId": "major_21",
+              "percentage": 10,
+              "originCompanyId": "major_21",
+              "mode": "major"
+            },
+            {
+              "id": "major_21_share_09",
+              "name": "SB Share 9 10%",
+              "ownerEntityId": "major_21",
+              "percentage": 10,
+              "originCompanyId": "major_21",
+              "mode": "major"
+            },
+            {
+              "id": "major_22_share_01",
+              "name": "SFAI Share 1 50/20%",
+              "ownerEntityId": "major_22",
+              "percentage": 20,
+              "originCompanyId": "major_22",
+              "mode": "regional"
+            },
+            {
+              "id": "major_22_share_02",
+              "name": "SFAI Share 2 25/10%",
+              "ownerEntityId": "major_22",
+              "percentage": 10,
+              "originCompanyId": "major_22",
+              "mode": "regional"
+            },
+            {
+              "id": "major_22_share_03",
+              "name": "SFAI Share 3 25/10%",
+              "ownerEntityId": "major_22",
+              "percentage": 10,
+              "originCompanyId": "major_22",
+              "mode": "regional"
+            },
+            {
+              "id": "major_22_share_04",
+              "name": "SFAI Share 4 10%",
+              "ownerEntityId": "major_22",
+              "percentage": 10,
+              "originCompanyId": "major_22",
+              "mode": "major"
+            },
+            {
+              "id": "major_22_share_05",
+              "name": "SFAI Share 5 10%",
+              "ownerEntityId": "major_22",
+              "percentage": 10,
+              "originCompanyId": "major_22",
+              "mode": "major"
+            },
+            {
+              "id": "major_22_share_06",
+              "name": "SFAI Share 6 10%",
+              "ownerEntityId": "major_22",
+              "percentage": 10,
+              "originCompanyId": "major_22",
+              "mode": "major"
+            },
+            {
+              "id": "major_22_share_07",
+              "name": "SFAI Share 7 10%",
+              "ownerEntityId": "major_22",
+              "percentage": 10,
+              "originCompanyId": "major_22",
+              "mode": "major"
+            },
+            {
+              "id": "major_22_share_08",
+              "name": "SFAI Share 8 10%",
+              "ownerEntityId": "major_22",
+              "percentage": 10,
+              "originCompanyId": "major_22",
+              "mode": "major"
+            },
+            {
+              "id": "major_22_share_09",
+              "name": "SFAI Share 9 10%",
+              "ownerEntityId": "major_22",
+              "percentage": 10,
+              "originCompanyId": "major_22",
+              "mode": "major"
+            },
+            {
+              "id": "major_23_share_01",
+              "name": "SFR Share 1 50/20%",
+              "ownerEntityId": "major_23",
+              "percentage": 20,
+              "originCompanyId": "major_23",
+              "mode": "regional"
+            },
+            {
+              "id": "major_23_share_02",
+              "name": "SFR Share 2 25/10%",
+              "ownerEntityId": "major_23",
+              "percentage": 10,
+              "originCompanyId": "major_23",
+              "mode": "regional"
+            },
+            {
+              "id": "major_23_share_03",
+              "name": "SFR Share 3 25/10%",
+              "ownerEntityId": "major_23",
+              "percentage": 10,
+              "originCompanyId": "major_23",
+              "mode": "regional"
+            },
+            {
+              "id": "major_23_share_04",
+              "name": "SFR Share 4 10%",
+              "ownerEntityId": "major_23",
+              "percentage": 10,
+              "originCompanyId": "major_23",
+              "mode": "major"
+            },
+            {
+              "id": "major_23_share_05",
+              "name": "SFR Share 5 10%",
+              "ownerEntityId": "major_23",
+              "percentage": 10,
+              "originCompanyId": "major_23",
+              "mode": "major"
+            },
+            {
+              "id": "major_23_share_06",
+              "name": "SFR Share 6 10%",
+              "ownerEntityId": "major_23",
+              "percentage": 10,
+              "originCompanyId": "major_23",
+              "mode": "major"
+            },
+            {
+              "id": "major_23_share_07",
+              "name": "SFR Share 7 10%",
+              "ownerEntityId": "major_23",
+              "percentage": 10,
+              "originCompanyId": "major_23",
+              "mode": "major"
+            },
+            {
+              "id": "major_23_share_08",
+              "name": "SFR Share 8 10%",
+              "ownerEntityId": "major_23",
+              "percentage": 10,
+              "originCompanyId": "major_23",
+              "mode": "major"
+            },
+            {
+              "id": "major_23_share_09",
+              "name": "SFR Share 9 10%",
+              "ownerEntityId": "major_23",
+              "percentage": 10,
+              "originCompanyId": "major_23",
+              "mode": "major"
+            },
+            {
+              "id": "major_24_share_01",
+              "name": "WW Share 1 50/20%",
+              "ownerEntityId": "major_24",
+              "percentage": 20,
+              "originCompanyId": "major_24",
+              "mode": "regional"
+            },
+            {
+              "id": "major_24_share_02",
+              "name": "WW Share 2 25/10%",
+              "ownerEntityId": "major_241",
+              "percentage": 10,
+              "originCompanyId": "major_24",
+              "mode": "regional"
+            },
+            {
+              "id": "major_24_share_03",
+              "name": "WW Share 3 25/10%",
+              "ownerEntityId": "major_24",
+              "percentage": 10,
+              "originCompanyId": "major_24",
+              "mode": "regional"
+            },
+            {
+              "id": "major_24_share_04",
+              "name": "WW Share 4 10%",
+              "ownerEntityId": "major_24",
+              "percentage": 10,
+              "originCompanyId": "major_24",
+              "mode": "major"
+            },
+            {
+              "id": "major_24_share_05",
+              "name": "WW Share 5 10%",
+              "ownerEntityId": "major_24",
+              "percentage": 10,
+              "originCompanyId": "major_24",
+              "mode": "major"
+            },
+            {
+              "id": "major_24_share_06",
+              "name": "WW Share 6 10%",
+              "ownerEntityId": "major_24",
+              "percentage": 10,
+              "originCompanyId": "major_24",
+              "mode": "major"
+            },
+            {
+              "id": "major_24_share_07",
+              "name": "WW Share 7 10%",
+              "ownerEntityId": "major_24",
+              "percentage": 10,
+              "originCompanyId": "major_24",
+              "mode": "major"
+            },
+            {
+              "id": "major_24_share_08",
+              "name": "WW Share 8 10%",
+              "ownerEntityId": "major_24",
+              "percentage": 10,
+              "originCompanyId": "major_24",
+              "mode": "major"
+            },
+            {
+              "id": "major_24_share_09",
+              "name": "WW Share 9 10%",
+              "ownerEntityId": "major_24",
+              "percentage": 10,
+              "originCompanyId": "major_24",
+              "mode": "major"
+            }
+          ],
+          "port_authority_markers": [
+            {
+              "id": "Port_Authority_1",
+              "name": "North Sea Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_2",
+              "name": "North Sea Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_3",
+              "name": "North Sea Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_4",
+              "name": "North Sea Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_5",
+              "name": "North Sea Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_6",
+              "name": "North Sea Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_7",
+              "name": "North Sea Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_8",
+              "name": "North Sea Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_9",
+              "name": "Mediterranean Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_10",
+              "name": "Mediterranean Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_11",
+              "name": "Mediterranean Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_12",
+              "name": "Mediterranean Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_13",
+              "name": "Mediterranean Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_14",
+              "name": "Mediterranean Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_15",
+              "name": "Mediterranean Port Authority",
+              "ownerEntityId": "bank_main"
+            },
+            {
+              "id": "Port_Authority_16",
+              "name": "Mediterranean Port Authority",
+              "ownerEntityId": "bank_main"
+            }
+          ],
+          "transfers": [
+            {
+              "id": "no",
+              "note": "Start of the game."
+            }
+          ]
+        }
+      },
+      "meta": 
+	  {
+        "name": "Starter-Template"
+      }
+    },
+  },
+  "currentGame": "MTBJ_1"
+  
+}

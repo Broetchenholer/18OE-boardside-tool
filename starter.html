@@ -1,0 +1,57 @@
+<!doctype html> 
+  <html lang="en"> 
+    <head> 
+	  <meta charset="UTF-8" /> 
+	  <title>Starter - Select Player</title> 
+	  </head> 
+	  <body> 
+	    <h1>Select Player</h1> 
+		<div id="starter"> 
+		  <label for="playerSelect">Choose a player:</label> 
+		  <select id="playerSelect"> 
+		    <option value="">Loading...</option> 
+		  </select> 
+		</div> 
+	  <script> 
+	  async function loadState() 
+	  { 
+	    const r = await fetch('/state'); 
+		if (!r.ok) throw new Error('State fetch failed'); 
+		return await r.json(); 
+	  } 
+	  
+	  async function init() 
+	  { 
+	    try 
+		{ 
+		  const state = await loadState();
+		  const players = (state.entities || []).filter(e => e.type === 'Player');
+		  const select = document.getElementById('playerSelect');
+		  select.innerHTML = '<option value="">-- select a player --</option>';
+		  players.forEach(p => 
+		  { 
+		    const opt = document.createElement('option'); 
+		    opt.value = p.id; 
+		    opt.textContent = p.name || p.id; select.appendChild(opt); 
+		  });
+		  select.addEventListener('change', () => 
+		  { 
+		    const id = select.value; 
+			if (id) 
+			{ 
+			  // Navigate to your player page with the selected id 
+			  window.location.href = `/player?playerId=${encodeURIComponent(id)}`; 
+			} 
+		  }); 
+		} 
+		catch (e) 
+		{ 
+		  console.error(e); 
+		  const s = document.getElementById('playerSelect'); 
+		  if (s) s.innerHTML = '<option value="">Failed to load players</option>'; 
+		} 
+	  } 
+	  document.addEventListener('DOMContentLoaded', init); 
+	</script> 
+  </body> 
+</html>
